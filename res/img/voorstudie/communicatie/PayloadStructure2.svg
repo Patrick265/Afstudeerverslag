@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 683.3 342" style="enable-background:new 0 0 683.3 342;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#FFFFFF;stroke:#000000;}
+	.st2{font-family:'ArialMT';}
+	.st3{font-size:12px;}
+	.st4{fill:#F5F5F5;stroke:#666666;}
+	.st5{fill:#333333;}
+	.st6{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st7{stroke:#000000;stroke-miterlimit:10;}
+</style>
+<path class="st0" d="z"/>
+<rect x="52.5" y="40.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 73.8105 64.5)" class="st2 st3">Packet grootte</text>
+</g>
+<rect x="52.5" y="0.5" pointer-events="all" class="st4" width="600" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 390.8174 24.5)" class="st5 st2 st3">Payload</text>
+</g>
+<rect x="172.5" y="40.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 226.5 64.5)" class="st2 st3">ID</text>
+</g>
+<rect x="292.5" y="40.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 311.3672 64.5)" class="st2 st3">Waarde grootte</text>
+</g>
+<rect x="412.5" y="40.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 438.7061 64.5)" class="st2 st3">Waarde type</text>
+</g>
+<rect x="532.5" y="40.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 571.7139 64.5)" class="st2 st3">Waarde</text>
+</g>
+<rect x="47.5" y="180.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 104.1631 204.5)" class="st2 st3">6</text>
+</g>
+<rect x="47.5" y="140.5" pointer-events="all" class="st4" width="600" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 385.8174 164.5)" class="st5 st2 st3">Payload</text>
+</g>
+<rect x="167.5" y="180.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 224.1631 204.5)" class="st2 st3">0</text>
+</g>
+<rect x="287.5" y="180.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 344.1631 204.5)" class="st2 st3">2</text>
+</g>
+<rect x="407.5" y="180.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 454.4893 204.5)" class="st2 st3">int16</text>
+</g>
+<rect x="527.5" y="180.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 574.1523 204.5)" class="st2 st3">4095</text>
+</g>
+<rect x="47.5" y="300.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 104.1631 324.5)" class="st2 st3">6</text>
+</g>
+<rect x="47.5" y="260.5" pointer-events="all" class="st4" width="600" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 385.8174 284.5)" class="st5 st2 st3">Payload</text>
+</g>
+<rect x="167.5" y="300.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 224.1631 324.5)" class="st2 st3">1</text>
+</g>
+<rect x="287.5" y="300.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 344.1631 324.5)" class="st2 st3">2</text>
+</g>
+<rect x="407.5" y="300.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 454.4893 324.5)" class="st2 st3">int16</text>
+</g>
+<rect x="527.5" y="300.5" pointer-events="all" class="st1" width="120" height="40"/>
+<g transform="translate(-0.5 -0.5)">
+	<text transform="matrix(1 0 0 1 574.1523 324.5)" class="st2 st3">4095</text>
+</g>
+<path pointer-events="stroke" class="st6" d="M647.4,180.5h16.8c5.6,0,8.4,3.3,8.4,10v40c0,6.7-2.8,10-8.4,10H15.9
+	c-5.6,0-8.4,3.3-8.4,10v40c0,6.7,2.8,10,8.4,10h19.9"/>
+<path pointer-events="all" class="st7" d="M46.4,300.5l-7,3.5l1.8-3.5l-1.8-3.5L46.4,300.5z"/>
+<path class="st0" d="z"/>
+</svg>

@@ -72,4 +72,46 @@ CAN is een groot onderdeel van de Sensor Maritime infrastructuur. De CAN communi
 \end{table}
 
 \subsubsection{Probleemstelling}
-Om het volgende deelvraag te kunnen beantwoorden zal er een aanpassing gemaakt moeten worden aan de bestaande CAN protocol van Sensor Maritime. De deelvraag wat beantwoord moet worden luid als volgt \textbf{Hoe kan er een robuuste  communicatie gecreëerd worden tussen het hoofdsysteem en Satellite?}
+Het huidige protocol ondersteunt de Satellite nog niet. De Satellite is een universele systeem, waarmee verschillende sensoren verbonden aan de Satellite is. Het huidige protocol is zo opgebouwd dat er maar een payload opgestuurt kan worden dit betekent als de Satellite twee sensoren op wil sturen dat het in de payload gestopt moet worden, hiervoor moet een vast structuur bepaalt worden zodat de ontvanger weet wat er ontvangen. Om het volgende deelvraag te kunnen beantwoorden zal er een aanpassing gemaakt moeten worden aan de bestaande CAN protocol payload van Sensor Maritime. Hiervoor zijn verschillende oplossingen voor bedacht dat hieronder wordt beschreven. Uiteindelijk wordt een conclusie genomen welke oplossing gekozen is en waarom. Voor alle payload structuren die beschreven worden zal er gebruikt gemaakt worden van hetzelfde voorbeeld. Voor de voorbeelden worden er twee sensoren gebruikt die de Satellite zal ondersteunen, deze twee sensoren zijn de inductie sensor en de altimeter sensor. De twee sensoren zullen gerepresenteerd wordt als een getal wat van 0 begint. Hieronder is een tabel \ref{tab:SensorRep} die een overzicht geeft.
+
+\begin{table}[h!]
+	\centering
+	\caption{Sensor id representatie}
+	\label{tab:SensorRep}
+	\begin{tabular}{p{2cm}p{6cm}}
+	\toprule
+	Sensor & ID        \\ \midrule
+	0      & Inductor  \\
+	1      & Altimeter \\ \bottomrule
+	\end{tabular}%
+\end{table}
+
+\newpage
+\subsubsection{Structuur 1}
+De eerste structuur is ontworpen om zo simpel mogelijk te zijn. Het idee bij dit ontwerp is dat je een id hebt wat de sensor aangeeft en vervolgens gelijk de waarde van sensor. Dit bedaarnaast voegt dit ook maar 1 byte toe aan de payload per sensor. Dit betekent dat het totale packet maar een aantal bytes groter zal zijn. De afbeelding \ref{fig:Structure1} geeft het opbouw en voorbeeld weer, hierbij kun je de twee sensoren zien met de id en de waarden.
+\begin{figure}[h!]
+	\centering
+	\label{fig:Structure1}
+
+	\caption{Opbouw en voorbeeld van de payload structuur 1}
+	\includegraphics[width=0.5\linewidth]{voorstudie/communicatie/PayloadStructure1-01.jpg}
+\end{figure}
+
+\subsubsection{Structuur 2}
+Structuur 2 is een heel uitgebreid opgezet, om zoveel mogelijk te ondersteunen. Ten eerste ondersteunt dit meerdere datatypes, bijvoorbeeld 8, 16, 32 bit nummers maar ook 32 bit en 64 bit decimalen. Ten tweede geeft dit structuur duidelijk aan wat de grootte is van een packet. Packet grootte, geeft aan de het hele sensor packet grootte in bytes. ID geeft aan wat voor sensor het is. Dan komen er drie kolumen voor de waarde, ten eerste wordt de waarde grootte in bytes gegeven, dan de waarde type en uiteindelijk de echte waarde. In het volgende afbeelding \ref{fig:Structure2} is een overzicht te zien.
+\begin{figure}[h!]
+	\centering
+	\label{fig:Structure2}
+	\caption{Opbouw en voorbeeld van de payload structuur 2}
+	\includegraphics[width=\linewidth]{voorstudie/communicatie/PayloadStructure2-01.jpg}
+\end{figure}
+
+\subsubsection{Structuur 3}
+Dit is het laatste structuur die ontworpen is, dit is een combinatie van structuur 1 en structuur 2. Dit heeft drie onderdelen voor een sensor, ten eerste zal de sensor id meegegeven worden. Daarna komt de waarde grootte in bytes, en uiteindelijk wordt de waarde gegeven. In afbeelding \ref{fig:Structure3} wordt het structuur en een voorbeeld weergeven.
+\begin{figure}[h!]
+	\label{fig:Structure3}
+	\caption{Opbouw en voorbeeld van de payload structuur 3}
+	\includegraphics[width=\linewidth]{voorstudie/communicatie/PayloadStructure3-01.jpg}
+\end{figure}
+
+\subsubsection{Conclusie}
