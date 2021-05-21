@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 521 41" style="enable-background:new 0 0 521 41;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#FFF2CC;stroke:#D6B656;}
+	.st2{font-family:'ArialMT';}
+	.st3{font-size:12px;}
+	.st4{fill:#DAE8FC;stroke:#6C8EBF;}
+	.st5{fill:#F8CECC;stroke:#B85450;}
+	.st6{fill:#E1D5E7;stroke:#9673A6;}
+	.st7{fill:#F5F5F5;stroke:#666666;}
+	.st8{fill:#333333;}
+	.st9{fill:#D5E8D4;stroke:#82B366;}
+</style>
+<path class="st0" d="z"/>
+<g>
+	<rect x="0.5" y="0.5" pointer-events="all" class="st1" width="40" height="40"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 13.1611 24.5)" class="st2 st3">S1</text>
+	</g>
+	<rect x="40.5" y="0.5" pointer-events="all" class="st1" width="40" height="40"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 53.1611 24.5)" class="st2 st3">S2</text>
+	</g>
+	<rect x="80.5" y="0.5" pointer-events="all" class="st4" width="40" height="40"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 88.1631 24.5)" class="st2 st3">Dest</text>
+	</g>
+	<rect x="120.5" y="0.5" pointer-events="all" class="st4" width="40" height="40"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 131.5 24.5)" class="st2 st3">Src</text>
+	</g>
+	<rect x="160.5" y="0.5" pointer-events="all" class="st5" width="40" height="40"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 168.8281 24.5)" class="st2 st3">Flag</text>
+	</g>
+	<rect x="200.5" y="0.5" pointer-events="all" class="st6" width="80" height="40"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 228.4971 24.5)" class="st2 st3">DLC</text>
+	</g>
+	<rect x="280.5" y="0.5" pointer-events="all" class="st7" width="160" height="40"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 338.8174 24.5)" class="st8 st2 st3">Payload</text>
+	</g>
+	<rect x="440.5" y="0.5" pointer-events="all" class="st9" width="80" height="40"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 467.501 24.5)" class="st2 st3">CRC</text>
+	</g>
+</g>
+<path class="st0" d="z"/>
+</svg>

@@ -1,0 +1,74 @@
+\documentclass[12pt]{report}
+
+%\usepackage[export]{adjustbox}
+\usepackage[dutch]{babel}
+
+% LAYOUT
+\usepackage[margin=2.54cm]{geometry}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+
+% TABLES
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+% IMAGES
+\usepackage{graphicx}
+
+%table of contents
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\graphicspath{{res/img/}}
+
+\usepackage[backend=biber,style=apa,autocite=inline]{biblatex}
+\addcontentsline{toc}{chapter}{Bibliography}
+\DeclareLanguageMapping{dutch}{dutch-apa}
+\addbibresource{Satellite.bib}
+
+\setcounter{secnumdepth}{3}
+
+%%% DUTCH
+
+\renewcommand{\chaptername}{Hoofdstuk}
+\renewcommand{\figurename}{Figuur}
+\renewcommand{\tablename}{Tabel}
+
+
+% Adds reference to table of contents
+
+\begin{document}
+
+	
+	\include{chapters/misc/voorpagina.tex}
+	\include{chapters/misc/colofon.tex}
+	\include{chapters/voorwoord.tex}
+	\include{chapters/samenvatting.tex}
+	\tableofcontents
+    \listoffigures
+    \listoftables
+	\include{chapters/inleiding.tex}
+	\include{chapters/bedrijfsinfo.tex}
+	\include{chapters/statements.tex}
+	\include{chapters/aanpak.tex}
+	\include{chapters/voorstudie.tex}
+	\include{chapters/ontwerp.tex}
+	\include{chapters/implementatie.tex}
+	\include{chapters/testen.tex}
+	\include{chapters/resultaat.tex}
+	\include{chapters/conclusie-aanbevelingen.tex}
+
+	\printbibliography
+	\include{chapters/bijlage.tex}
+	\include{chapters/woordenlijst.tex}
+
+\end{document}
