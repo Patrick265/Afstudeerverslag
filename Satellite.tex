@@ -1,6 +1,5 @@
-\documentclass[12pt]{report}
+\documentclass[11pt]{report}
 
-%\usepackage[export]{adjustbox}
 \usepackage[dutch]{babel}
 
 % LAYOUT
@@ -8,6 +7,8 @@
 \usepackage{rotating}
 \usepackage{pdflscape}
 \usepackage{afterpage}
+\usepackage{titlesec}
+
 
 % TABLES
 \usepackage{booktabs}
@@ -44,31 +45,36 @@
 \renewcommand{\tablename}{Tabel}
 
 
-% Adds reference to table of contents
+\titleformat{\chapter}
+  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
 \begin{document}
 
 	
 	\include{chapters/misc/voorpagina.tex}
 	\include{chapters/misc/colofon.tex}
-	\include{chapters/voorwoord.tex}
-	\include{chapters/samenvatting.tex}
+	\include{chapters/misc/voorwoord.tex}
+	\include{chapters/misc/samenvatting.tex}
 	\tableofcontents
-    \listoffigures
-    \listoftables
-	\include{chapters/inleiding.tex}
-	\include{chapters/bedrijfsinfo.tex}
-	\include{chapters/statements.tex}
-	\include{chapters/aanpak.tex}
-	\include{chapters/voorstudie.tex}
-	\include{chapters/ontwerp.tex}
-	\include{chapters/implementatie.tex}
-	\include{chapters/testen.tex}
-	\include{chapters/resultaat.tex}
+	\listoffigures
+	\begingroup
+	\let\clearpage\relax
+	\listoftables
+	\endgroup
+	\include{chapters/misc/inleiding.tex}
+	\include{chapters/aanpak/bedrijfsinfo.tex}
+	\include{chapters/aanpak/statements.tex}
+	\include{chapters/aanpak/aanpak.tex}
+	\include{chapters/aanpak/methodetechnieken.tex}
+	\include{chapters/ontwerp/ontwerp.tex}
+	\include{chapters/uitvoering/uitvoering.tex}
+	\include{chapters/uitvoering/testen.tex}
+	\include{chapters/uitvoering/resultaat.tex}
 	\include{chapters/conclusie-aanbevelingen.tex}
 
 	\printbibliography
-	\include{chapters/bijlage.tex}
-	\include{chapters/woordenlijst.tex}
+	\include{chapters/misc/bijlage.tex}
+	\include{chapters/misc/woordenlijst.tex}
 
 \end{document}

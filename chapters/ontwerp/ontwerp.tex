@@ -1,0 +1,64 @@
+\chapter{Ontwerp}
+In dit hoofdstuk wordt er gekeken naar de softwareontwerp, er wordt gefocust op de volgende onderdelen. Ten eerste wordt er gekeken naar de algemene applicatie, driver, hardware validatie en uiteindelijk communicatie. 
+
+
+
+\section{Applicatie}
+De applicatie moet zo generiek mogelijk zijn, dit betekent dat de applicatie moet werken als er bijvoorbeeld van sensor verandert wordt. De nieuwe sensor kan totaal verschillend zijn of een nieuwe variant zijn, dit moet allemaal meegenomen worden in de uiteindelijke applicatie. Als er nieuwe sensor toegevoegd wordt is er een doel, het doel is dat de enige toevoeging wat er gemaakt moet worden is dat er een driver geschreven wordt voor dat specifieke sensor, maar aanpassing aan de applicatie moet minimaal gebeuren. In afbeelding \ref{fig:appontwerp} wordt een algemene overzicht gemaakt hoe de applicatie is opgebouwd. Er zal gefocust worden in de volgende hoofdstukken op een aantal lagen van de applicatie. Ten eerste wordt er gekeken naar sensor drivers, sensor abstracties, communicatie. Deze onderdelen hebben het grootste invloed op de applicatie. De hardware drivers en hardware is al gegeven en hier zal dan geen aanpassingen op gedaan worden, en zal gebruikt worden zoals het aangeleverd is.
+\begin{figure}[h!]
+	\centering
+	\label{fig:appontwerp}
+	\caption{Algemene structuur van de applicatie}
+	\includegraphics[width=0.5\linewidth]{ontwerp/applicatie/structuur.jpg}
+\end{figure}
+
+\newpage
+\subsection{Applicatie states}
+De applicatie heeft verschillende states en taken die om de bepaalde tijd uitgevoerd moet worden. Deze states zijn tijdvariant maar sommige onderdelen zijn juist weer tijdsinvariant. Een tijdvariant taak  betekent dat om zoveel milliseconden er een taak uitgevoerd zal worden. In het huidige systeem wordt er om de 100 ms een akkoord gegeven aan de applicatie om sensor data op te halen en uiteindelijk opgestuurd te worden. Een belangrijke onderdeel van de applicatie is de communicatie op het moment wordt er om de seconden sensor data opgestuurd via UDP. Een tijdsinvariant taken zijn taken die niet op tijd gebaseerd zijn. De GNSS Sensor stuurt bijvoorbeeld continue data op. Dit betekent dat er verschillende taken zijn die uiteindelijke allemaal samengevoegd moet worden, hieronder is te zien \ref{fig:appstates} hoe de applicatie dit oplost.
+
+\begin{figure}[h!]
+	\centering
+	\label{fig:appstates}
+	\caption{Applicatie states van de applicatie}
+	\includegraphics[width=\linewidth]{ontwerp/applicatie/ApplicationStates.jpg}
+\end{figure}
+
+\noindent In het figuur \ref{fig:appstates} zijn er een aantal start nodes, ten eerste is de tijdsvariant onderdeel. Dit wordt per 100 milliseconden uitgevoerd, er wordt hier alleen gecheckt of de applicatie sensor data mag ophalen of verzenden. De applicatie krijgt om de 100 milliseconden dus de tijd om een signaal te geven aan de applicatie loop dat het tijdvariant sensor data mag op halen. Er mag pas data opgestuurd worden als een bepaalde tijdsinterval gehaald wordt, op het moment staat dit op 1 seconden. Dit betekent voor 10 timer cycles mag er een keer data opgestuurd worden. Bij de 10de cycle wordt er weer signaal gegeven aan de applicatie loop dat er data opgestuurd mag worden. \newline
+
+\noindent Naast het tijdsvariant onderdeel is er ook een tijdsinvariant onderdeel. Dit wordt gebruikt voor sensoren die bijvoorbeeld continue data opsturen naar de Satellite. Dit onderdeel slaat alleen data en als het een compleet sensor packet heeft dan geeft het een signaal aan de applicatie dat er een sensor packet verstuurd kan worden. \newline
+
+\noindent Het laatste onderdeel is de applicatie loop, hier wordt de tijdvariant sensor data opgehaald en uiteindelijk opgestuurd. Er wordt als eerst gecheckt of er een akkoord is om sensor data op te halen of te versturen, als die er is dan haalt hij de tijdsvariant data op, en vervolgens wordt er gekeken of er een tijdsinvariant sensor packet klaar staat. Als dat is wordt het tijdsinvariant packet opgehaald, en opgestuurd via UDP. Mocht dit niet zijn dan wordt alleen het tijdsvariant sensor data opgehaald en gelijk opgestuurd. \newline
+
+\section{Preprocessor} \label{sec:preprocessor}
+De preprocessor is een handig onderdeel van de C taal en een belangrijk onderdeel van het project. De preprocessor is een stap wat voor het compileren gebeurt wordt, met bepaalde teksten kunnen sommige onderdelen niet gecompileerd worden of juist wel. Dit betekent dat makkelijk onderdelen uitgezet kan worden, bijvoorbeeld een specifieke sensor hoeft niet gebruikt worden, normale wijze zou je dan een if statement bijvoorbeeld maken. Dit betekent alleen wel dat alle code mee gecompileerd zou worden. Met de preprocessor voeg je weer een if statement toe maar dan hoeft de code niet aangepast je hoeft alleen maar definitie te verwijderen of toe te voegen. Dit betekent dat hele stuk code er blijft staan, de preprocessor bepaald dan of gecompileerd wordt of niet, dit verminderd het compilatie tijd en de uiteindelijk grootte van de programma \autocite{preprocessor}. 
+
+\section{Sensor drivers en abstractie}
+Voor de sensoren zijn er twee lagen ontwikkeld, namelijk de drivers en de abstractie. Dit is opgesplitst om de software zo generiek mogelijk te maken. Er wordt dan ook hier na de volgende deelvraag bekeken \textbf{Op welke manier moet de software ontworpen worden zodat het makkelijk uitbreidbaar is voor nieuwe sensoren?}. \newline 
+
+\noindent De drivers en abstractie zijn opgesplitst zodat de applicatie structuur niet aangepast hoeft te worden, er zal dan alleen een nieuwe driver geschreven moeten worden en de abstractie aangepast moeten worden. De applicatie zal dan niet veranderen. Om een voorbeeld te geven, de applicatie heeft een poll timer. Deze timer haalt om de 100 milliseconden data op van de inertial measurement unit. Mocht Sensor Maritime een nieuwe inertial measurement unit ondersteunen, normaal zou dan de applicatie ook aangepast moeten worden bepaalde functie calls. De sensor abstractie vervangt dit het idee is dan ook dat in toekomst de applicatie laag code zo min mogelijk moet aangepast worden. De sensor abstractie moet dan juist aangepast worden en de applicatie laag roept dan de sensor abstractie code op. Hieronder is een overzicht te zien hoe het dan zou werken \ref{fig:SensorAbstractie}. De sensor keuze wordt makkelijk gedaan met de preprocessor zie \ref{sec:preprocessor}, hiermee worden sommige sensoren niet gecompileerd of juist wel.
+\begin{figure}[h!]
+	\centering
+	\label{fig:SensorAbstractie}
+	\caption{Sensor abstractie activity diagram}
+	\includegraphics[width=0.5\linewidth]{ontwerp/applicatie/SensorAbstractie.jpg}
+\end{figure}
+	
+	
+\newpage
+\section{Communicatie}
+\input{chapters/ontwerp/communicatie.tex}
+\newpage
+
+\newpage
+\section{Validatie}
+\input{chapters/ontwerp/hardwarevalidatie.tex}
+
+\newpage
+\section{Klassediagram}
+Hieronder is een klassediagram gegeven van de hele applicatie \ref{fig:klassediagram}. Hier zijn een paar onderderdelen goed te zien ten eerste, is dat alle sensoren een abstractie laag hebben, die specifieke gekoppeld is aan een sensor  driver. De hardware abstractie laggen die door DAVE zijn gemaakt zijn getoond in de klassediagram aangezien dit een externe lib is.
+\begin{figure}[h!]
+	\centering
+	\label{fig:klassediagram}
+	\caption{Algemene structuur van de applicatie}
+	\includegraphics[width=\linewidth]{ontwerp/applicatie/Satellite.jpg}
+\end{figure}

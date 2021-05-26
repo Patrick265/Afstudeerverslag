@@ -1,10 +1,7 @@
 \chapter{Probleemanalyse}
 
-\section{Aanleiding}
-De aanleiding waarom Satellite is gestart is om een universele data-driven optimalisatie te maken voor kapiteins van binnevaartschepen. Satellite is uniek omdat de kapitein plug and play verschillende sensoren kan toevoegen specifiek voor zijn binnenvaartschip. Waardoor de kapitein makkelijk en beter naar zijn bestemming kan komen. Het is dan ook belangrijk dat de Satellite verschillende communicatiemiddelen en sensoren ondersteunt.
-
 \section{Probleemomschrijving}
-Het project heet Satellite. Satellite is een nieuw project dat ontwikkeld wordt door Sensor Maritime als een data gedreven optimalisatie voor scheepvaart. Het geeft een kapitein de mogelijkheid om aan de hand van data kosten te besparen. Dit wordt gedaan door gegevens te verzamelen. Met deze data kan een kapitein efficiënter werken door veiliger, slimmer en duurzamer opereren. Elke kapitein zal andere data willen voor zijn binnenvaartschip. Satellite 3.1 is zo ontwikkeld dat je plug en play verschillende sensoren kan toevoegen. Sensor Maritime heeft al het hardware ontwikkeld maar mist alleen nog de software voor het product.
+Het project heet Satellite. Satellite is een nieuw project dat ontwikkeld wordt door Sensor Maritime als een data gedreven optimalisatie voor scheepvaart. Het geeft een kapitein de mogelijkheid om aan de hand van data kosten te besparen. Dit wordt gedaan door gegevens te verzamelen. Met deze data kan een kapitein efficiënter werken door veiliger, slimmer en duurzamer te opereren. Elke kapitein zal andere data willen voor zijn binnenvaartschip. Dit betekent dat het veranderen van sensoren simpel en snel moet zijn. Satellite (zie \ref{fig:shw} is zo ontwikkeld dat je plug en play verschillende sensoren kan toevoegen. Dit wordt gedaan door verschillende IO porten en connectors toe te voegen aan de hardware. De Satellite hardware is al ontwikkeld, maar mist alleen nog de software om als product het te gebruiken. Aan de afstudeerder is er gevraagd om voor de hardware, software te schrijven waarbij de nieuwe hardware gelijk getest kan worden. Hiervoor zal een testplan gemaakt moeten worden en een test applicatie ontwikkeld worden.
 \begin{figure}[h!]
 	\begin{centering}
 		\caption{Satellite hardware}
@@ -13,21 +10,26 @@ Het project heet Satellite. Satellite is een nieuw project dat ontwikkeld wordt 
 	\label{fig:shw}
 	\end{centering}
 \end{figure}
-\newpage
-\noindent De reden voor de opdracht is om een universeel systeem te ontwikkelen wat voor verschillende doeleinden gebruikt kan worden. Voor de kapitein wordt dit een doos 1.1 waarop hij alle producten van Sensor Maritime kan koppelen aan de Satellite. De Satellite is een gloednieuw product, met gloednieuw hardware. Hiervoor is nog geen software voorgeschreven. Aan de afstudeerder is er gevraagd om voor de hardware software te schrijven waarbij de hardware ook gelijk getest mee kan worden. Ten eerste zullen alle IO porten getest worden. Dit zal gedaan worden aan de hand van sensoren uitlezen via verschillende protocollen. Vervolgens zullen ook verschillende communicatiemiddelen getest moeten worden.
-
 \section{Betrokken partijen}
 Tijdens de afstudeerstage zijn er twee partijen betrokken, Sensor Maritime in Vught en de student die de afstudeerstage volgt. Mark-Ivo van Ooijen van Sensor Maritime is de begeleider en projectleider. De tweede partij is de afstudeerder zelf, Patrick de Jong. Vanuit school zijn er ook 2 examinatoren, maar deze zijn niet betrokken bij het project zelf. De examinatoren zijn Andries van Dongen, hij is de een docentbegeleider die de afstudeerstage zal begeleiden. Pieter Kop Jansen zal er alleen zijn bij de uiteindelijke verdediging.
 
 \section{Onderzoeksvraag}
 De onderzoeksvraag tijdens de afstudeerstage zal zijn: \textbf{Hoe kan een modulair softwaresysteem worden ontwikkeld voor de Satellite hardware zo dat verschillende sensoren ondersteunt worden en data verstuurd kan worden naar een extern opslagpunt?}
-\newpage
+
 \section{Deelvragen}
 Voor het Satellite project zijn de volgende deelvragen gedefinieerd:
 \begin{enumerate}
 	\item Hoe kan er een robuuste  communicatie gecreëerd worden tussen het hoofdsysteem en Satellite?
 	\item Op welke manier moet de software ontworpen worden zodat het makkelijk uitbreidbaar is voor nieuwe sensoren?
 	\item Welke stappen zijn er nog om alle IO porten te testen van de Satellite?
+\end{enumerate}
+
+\section{Doelstellingen}
+De doelstelling van het project geven duidelijkheid in wat er precies bereikt moet worden in betrekking met de onderzoeksvraag en deelvraag. Hieronder is een lijst dat aangeeft welke doelstellingen bereikt moeten worden.
+\begin{enumerate}
+	\item De Satellite IO porten zijn volledig getest, en kunnen communiceren met sensoren.
+	\item De Satellite heeft een robuuste communicatie over CAN en UDP. 
+	\item Generiek en modulair opgebouwd software, waardoor het in de toekomst makkelijk uitgebreid kan worden.
 \end{enumerate}
 
 \section{Eisen}
