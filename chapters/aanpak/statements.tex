@@ -1,7 +1,7 @@
 \chapter{Probleemanalyse}
 
 \section{Probleemomschrijving}
-Het project heet Satellite. Satellite is een nieuw project dat ontwikkeld wordt door Sensor Maritime als een data gedreven optimalisatie voor scheepvaart. Het geeft een kapitein de mogelijkheid om aan de hand van data kosten te besparen. Dit wordt gedaan door gegevens te verzamelen. Met deze data kan een kapitein efficiënter werken door veiliger, slimmer en duurzamer te opereren. Elke kapitein zal andere data willen voor zijn binnenvaartschip. Dit betekent dat het veranderen van sensoren simpel en snel moet zijn. Satellite (zie \ref{fig:shw} is zo ontwikkeld dat je plug en play verschillende sensoren kan toevoegen. Dit wordt gedaan door verschillende IO porten en connectors toe te voegen aan de hardware. De Satellite hardware is al ontwikkeld, maar mist alleen nog de software om als product het te gebruiken. Aan de afstudeerder is er gevraagd om voor de hardware, software te schrijven waarbij de nieuwe hardware gelijk getest kan worden. Hiervoor zal een testplan gemaakt moeten worden en een test applicatie ontwikkeld worden.
+Het project heet Satellite. Satellite is een nieuw project dat ontwikkeld wordt door Sensor Maritime in het kader van data gedreven optimalisatie voor scheepvaart. Het geeft een kapitein de mogelijkheid om aan de hand van data kosten te besparen. Dit wordt gedaan door gegevens te verzamelen. Met deze data kan een kapitein efficiënter werken door veiliger, slimmer en duurzamer te opereren. Elke kapitein zal andere data willen voor zijn binnenvaartschip. Dit betekent dat het veranderen van sensoren simpel en snel moet zijn. Satellite (zie \ref{fig:shw} is zo ontwikkeld dat je plug en play verschillende sensoren kan toevoegen. Dit wordt gedaan door verschillende IO porten en connectors toe te voegen aan de hardware. De Satellite hardware is al ontwikkeld, maar mist alleen nog de software om als product het te gebruiken. Aan de afstudeerder is er gevraagd om voor de hardware, software te schrijven waarbij de nieuwe hardware gelijk getest kan worden. Er moet nadruk gelegd worden bij de oplevering dat er een robuust en een generieke applicatie ontwikkeld wordt wat gefocust is op zowel de klant als de ontwikkelaar.
 \begin{figure}[h!]
 	\begin{centering}
 		\caption{Satellite hardware}
@@ -10,16 +10,18 @@ Het project heet Satellite. Satellite is een nieuw project dat ontwikkeld wordt 
 	\label{fig:shw}
 	\end{centering}
 \end{figure}
+
+
 \section{Betrokken partijen}
 Tijdens de afstudeerstage zijn er twee partijen betrokken, Sensor Maritime in Vught en de student die de afstudeerstage volgt. Mark-Ivo van Ooijen van Sensor Maritime is de begeleider en projectleider. De tweede partij is de afstudeerder zelf, Patrick de Jong. Vanuit school zijn er ook 2 examinatoren, maar deze zijn niet betrokken bij het project zelf. De examinatoren zijn Andries van Dongen, hij is de een docentbegeleider die de afstudeerstage zal begeleiden. Pieter Kop Jansen zal er alleen zijn bij de uiteindelijke verdediging.
 
 \section{Onderzoeksvraag}
-De onderzoeksvraag tijdens de afstudeerstage zal zijn: \textbf{Hoe kan een modulair softwaresysteem worden ontwikkeld voor de Satellite hardware zo dat verschillende sensoren ondersteunt worden en data verstuurd kan worden naar een extern opslagpunt?}
+De onderzoeksvraag tijdens de afstudeerstage zal zijn: \textbf{Hoe kan een modulair softwaresysteem worden ontwikkeld voor de Satellite hardware zo dat verschillende sensoren ondersteunt worden en data verstuurd kan worden naar een eindsysteem?}
 
 \section{Deelvragen}
-Voor het Satellite project zijn de volgende deelvragen gedefinieerd:
+Het systeem moet robuust en makkelijk uitbreidbaar zijn. Daar sluiten dan twee van de deelvragen dan ook aan. Het laatste deelvraag is dat er gekeken naar de hardware validatie. Dit is een extra onderdeel wat Sensor Maritime aan de stagair heeft gevraagd om een manier te ontwikkelen zodat er makkelijk nieuwe Satellite hardware getest kan worden.
 \begin{enumerate}
-	\item Hoe kan er een robuuste  communicatie gecreëerd worden tussen het hoofdsysteem en Satellite?
+	\item Hoe kan er een robuuste  communicatie gecreëerd worden tussen een hoofdsysteem en Satellite?
 	\item Op welke manier moet de software ontworpen worden zodat het makkelijk uitbreidbaar is voor nieuwe sensoren?
 	\item Welke stappen zijn er nog om alle IO porten te testen van de Satellite?
 \end{enumerate}
@@ -32,28 +34,27 @@ De doelstelling van het project geven duidelijkheid in wat er precies bereikt mo
 	\item Generiek en modulair opgebouwd software, waardoor het in de toekomst makkelijk uitgebreid kan worden.
 \end{enumerate}
 
+\newpage
 \section{Eisen}
-De volgende tabel \ref{tab:eisen} geeft een overzicht van de eisen voor het project Satellite.
+Voor dat er een applicatie ontwikkeld kon worden is er besproken met de stagebegeleider waar de applicatie aan moet voldoen. De volgende tabel \ref{tab:eisen} geeft een overzicht van de eisen voor het project Satellite.
 \begin{table}[h!]
+	\centering
 	\caption{MoSCoW Analyse}
-
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|l | l |}
-		\hline
-		\multirow{5}{*}{\textbf{Must have}} 	& Alle IO porten van de Satellite moeten getest worden                                   	\\ \cline{2-2}
-												& Implementatie van de hoekmeting en versnellingsassen                                   	\\ \cline{2-2}
-												& Spectrum analyse maken van de versnellingassen                                         	\\ \cline{2-2}
-												& Errors moeten goed afgevangen worden, de applicatie mag niet crashen of blijven hangen 	\\ \cline{2-2}
-												& CAN implementatie, en correct protocol afhandeling                                     	\\ \hline
-		\multirow{2}{*}{\textbf{Should have}} 	& Implementatie voor IO-Link sensoren                                                    	\\ \cline{2-2}
-												& Hoogte sensoren en antenne sensor inlezen                                              	\\ \hline
-		\multirow{2}{*}{\textbf{Could have}} 	& Standaard datastructuur voor paketten die worden opgestuurd 						   		\\ \cline{2-2}
-												& Debug berichten worden opgestuurd via UDP/CAN                                          	\\ \cline{2-2}
-		\multirow{3}{*}{\textbf{Won't have}}	& Ondersteuning van niet gekozen sensoren van Sensor Maritime  						   		\\ \hline
-												& Ondersteuning voor andere communicatiemiddelen dan UDP, CAN								\\ \cline{2-2}
-												& Ondersteuning voor andere embedded systemen                                        	   	\\ \hline  
-	\end{tabular}%
-	}
 	\label{tab:eisen}
+	\begin{tabular}{lp{9cm}ll}
+	\toprule
+	\textbf{ID} & \textbf{Eis} & \textbf{Prioriteit} & \textbf{Bron} \\ \midrule
+	SM1			& Alle IO porten van de Satellite moeten getest worden 										& MUST		& Gesprek opdrachtgever \\
+	SM2			& Implementatie van de hoekmeting en versnellingsassen 										& MUST		& Gesprek opdrachtgever \\ 
+	SM3			& Spectrum analyse maken van de versnellingassen 											& MUST		& Gesprek opdrachtgever \\ 
+	SM4			& Errors moeten goed afgevangen worden, de applicatie mag niet crashen of blijven hangen 	& MUST		& Gesprek opdrachtgever \\ 
+	SM5			& CAN implementatie, en correct protocol afhandeling										& MUST		& Gesprek opdrachtgever \\ \midrule
+	SM6			& Implementatie voor IO-Link sensoren 														& SHOULD	& Gesprek opdrachtgever \\
+	SM7			& Hoogte sensoren en antenne sensor inlezen 												& SHOULD	& Gesprek opdrachtgever \\  \midrule
+	SM8			& Standaard datastructuur voor paketten die worden opgestuurd								& COULD		& Gesprek opdrachtgever \\
+	SM9			& Debug berichten worden opgestuurd via UDP/CAN 											& COULD		& Gesprek opdrachtgever \\  \midrule
+	SM10		& Ondersteuning van niet gekozen sensoren van Sensor Maritime 								& WON'T		& Gesprek opdrachtgever \\
+	SM11		& Ondersteuning voor andere communicatiemiddelen dan UDP, CAN 								& WON'T		& Gesprek opdrachtgever \\
+	SM12		& Ondersteuning voor andere embedded systemen  												& WON'T		& Gesprek opdrachtgever \\\bottomrule
+	\end{tabular}
 \end{table}
-
