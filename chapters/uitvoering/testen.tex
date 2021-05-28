@@ -1,10 +1,10 @@
 \chapter{Testen}
-In dit hoofdstuk wordt er gekeken naar de testen die gedaan is tijdens het traject, ten eerste wordt er gekeken naar de hardwarevalidatie testplan, maar ook de testplan voor de applicatie. 
+In dit hoofdstuk wordt er gekeken naar de testen die gedaan is tijdens het traject, ten eerste wordt er gekeken naar de hardware validatie testplan, maar ook het testplan voor de applicatie. Testen in softwareontwikkeling is een belangrijk onderdeel, hiermee kan er goed gekeken hoe robuust de applicatie is geworden.
 
 \section{Testplan hardware validatie} \label{sec:hwtestplan}
-Dit is het testplan die bedacht is om de alle porten van de Satellite te testen, deze testplan wordt gebruikt bij nieuwe Satellite hardware. Hiermee kan Sensor Maritime heel snel de hardware verifiëren.
+Dit is het testplan die bedacht is om de alle porten van de Satellite te testen, dit is testplan die wordt gebruikt bij Satellite hardware. Hiermee kan Sensor Maritime heel snel de hardware verifiëren.
 \subsection{DIP switch}
-De eerste drie schakelaars worden anders getest in vergelijking met de laatste vier. De laatste vier schakelaars maken vier leds branden die op Satellite zitten. In het volgende tabel \ref{tab:hw_val_dip_testplan} is een overzicht van het testplan:
+De eerste drie schakelaars worden anders getest in vergelijking met de laatste vier. De laatste vier schakelaars maken vier leds branden die op Satellite zitten. In de volgende tabel \ref{tab:hw_val_dip_testplan} is een overzicht van het testplan:
 \begin{table}[h!]
 	\caption{DIP switch porten testplan}
 	\begin{tabular}{lp{14.5cm}}
@@ -39,7 +39,7 @@ Alle digitale output porten voeren dezelfde actie. Het doel is dat als een LED v
 \end{table}
 
 \subsection{Analog input signaal}
-Aan de hand wat is beschreven zal er gebruik gemaakt worden van de DIP schakelaars PU1, PU2, en PU3 om de analoge input te testen. De microcontroller heeft een 12 bit Analog to Digital Converter (ADC) \autocite{microcontroller}. Dit betekent dat het bereik van analoge input porten van 0 tot 4096 ($2^{12}$) is. Dus bij 24 volt zal de microcontroller ongeveer 4096 in lezen, het getal kan af en toe lager zijn in ver band met ruis. Bij 0 volt zal de microcontroller 0 in lezen. PU1, PU2, PU3 zet het analoge bereik tussen 3,3 volt en 24 volt. Dit betekent als PU1, PU2 of PU3 uitstaan dat de maximale bereik 3,3 volt is en als het aan staat is de bereik 24 Volt. Om het bereik te testen zal er gebruikt gemaakt worden van een Graphical User Interface (GUI). De microcontroller zal om 100 microseconden de analoge input omzetten naar een digitale waarden en dit opsturen over UDP. Hiermee kan geverifieerd worden dat als de DIP schakelaars uitstaan dat het bereik van de waarden van 0 tot 1100 gaan. Als de DIP schakelaars aan staan dan zal het bereik zijn van 0 tot 4096. Hieronder is een overzicht van hoe de analoge input porten gevalideerd worden \ref{tab:hw_val_ai_testplan}.
+Aan de hand wat is beschreven zal er gebruik gemaakt worden van de DIP schakelaars PU1, PU2, en PU3 om de analoge input te testen. De microcontroller heeft een 12 bit Analog to Digital Converter (ADC) \autocite{microcontroller}. Dit betekent dat het bereik van analoge input porten van 0 tot 4096 ($2^{12}$) is. Dus bij 24 volt zal de microcontroller ongeveer 4096 in lezen, het getal kan af en toe lager zijn in verband met ruis. Bij 0 volt zal de microcontroller 0 in lezen. PU1, PU2, PU3 zet het analoge bereik tussen 3,3 volt en 24 volt. Dit betekent als PU1, PU2 of PU3 uitstaan dat de maximale bereik 3,3 volt is en als het aan staat is de bereik 24 Volt. Om het bereik te testen zal er  gemaakt worden van een Graphical User Interface (GUI). De microcontroller zal om 100 microseconden de analoge input omzetten naar een digitale waarden en dit opsturen over UDP. Hiermee kan geverifieerd worden dat als de DIP schakelaars uitstaan dat het bereik van de waarden van 0 tot 1100 gaan. Als de DIP schakelaars aan staan dan zal het bereik zijn van 0 tot 4096. Hieronder is een overzicht van hoe de analoge input porten gevalideerd worden \ref{tab:hw_val_ai_testplan}.
 \begin{table}[h!]
 	\caption{Testplan voor de analoge input signalen}
 	\begin{tabular}{lp{14.5cm}}
@@ -67,11 +67,11 @@ De relay geeft bij het sluiten en het openen van de mechanische connectie een lu
 
 
 \subsection{Serieel communicatie}
-Om de seriele communicatie te testen wordt er gebruikt gemaakt van GUI. Deze GUI vraagt de om gebruikers input hier in kan de gebruiker een tekst schrijven en dit wordt opgestuurd. De tekst heeft een limiet van maximaal 32 karakters. Er zal hier automatisch een newline karakter toegevoegd worden zodat de microcontroller weet dat dit het einde van het gebruikers bericht is. Het bericht wordt opgestuurd naar de microcontroller en zal de data verwerken. De microcontroller zal dan een antwoord geven als volgt, ten eerste zal de microcontroller vertellen welke variant van communicatie is gebruikt en daarna zal het toevoegen wat de microcontroller ontvangen heeft van de gebruiker. Hieronder is een overzicht \ref{fig:testplanserieel} van hoe het testplan zal werken.
+Om de serieel communicatie te testen wordt er gebruik gemaakt van GUI. Deze GUI vraagt de om gebruikers input hierin kan de gebruiker een tekst schrijven en dit wordt opgestuurd. De tekst heeft een limiet van maximaal 32 karakters. Er zal hier automatisch een newline karakter toegevoegd worden zodat de microcontroller weet dat dit het einde van het gebruikers bericht is. Het bericht wordt opgestuurd naar de microcontroller en zal de data verwerken. De microcontroller zal dan een antwoord geven als volgt, ten eerste zal de microcontroller vertellen welke variant van communicatie is gebruikt en daarna zal het toevoegen wat de microcontroller ontvangen heeft van de gebruiker. Hieronder is een overzicht \ref{fig:testplanserieel} van hoe het testplan zal werken.
 
 \begin{figure}[h!]
 	\centering
-	\caption{Testplan seriele communicatie}
+	\caption{Testplan serieel communicatie}
 	\label{fig:testplanserieel}
 	\includegraphics[width=0.5\linewidth]{voorstudie/testplan/Serieel.jpg}
 \end{figure}
@@ -80,15 +80,15 @@ Om de seriele communicatie te testen wordt er gebruikt gemaakt van GUI. Deze GUI
 
 \subsection{GUI}
 \section{Applicatie}
-De applicatie moet voldoen aan de eisen en doelstelling die bepaald zijn in \ref{ch:aanpak}, hiervoor is gebruikt gemaakt van twee manieren van testen. Ten eerste wordt er gebruikt gemaakt van een GUI die data ontvangt van de Satellite en toont op GUI in vorm van grafieken en tabellen. Er is hiervoor een nieuwe project begonnen die stagair zelf ontwikkeld heeft. De tweede manier van testen is gebruikt maken van de onboard LED's die de Satellite standaard beschikt. De Satellite heeft in totaal vier LED's die software ontwikkelaar aan of uit kan zetten. 
+De applicatie moet voldoen aan de eisen en doelstelling die bepaald zijn in hoofdstuk \ref{ch:aanpak}, hiervoor is gebruikt gemaakt van twee manieren van testen. Ten eerste wordt er gebruikt gemaakt van een GUI die data ontvangt van de Satellite en toont op GUI in vorm van grafieken en tabellen. Er is hiervoor een nieuw project begonnen die stagiair zelf ontwikkeld heeft. De tweede manier van testen is gebruikt maken van de onboard LED's die de Satellite standaard beschikt. De Satellite heeft in totaal vier LED's die softwareontwikkelaar aan of uit kan zetten. 
 
 
 
 \subsection{GUI}
-Om de applicatie te testen is er gebruikt gemaakt van een desktop applicatie die alle data ontvangt en visualiseert in verschillende grafieken. Dit geeft de gebruiker direct input of een applicatie werkt na toebehoren. Er is voor elke sensor een nieuwe tabblad gemaakt waarop dat weergegeeft wordt. Om de applicatie goed te testen is dan ook de applicatie gebruikt op lange termijn zodat de software ontwikkelaar ook weet of het over drie uur nog steeds zal werken. Hieronder is een voorbeeld \ref{fig:guitest} hoe de user interface eruit ziet. 
+Om de applicatie te testen is er gebruik gemaakt van een desktopapplicatie die alle data ontvangt en visualiseert in verschillende grafieken. Dit geeft de gebruiker direct input of een applicatie werkt na toebehoren. Er is voor elke sensor een nieuw tabblad gemaakt waarop dat weergeeft wordt. Om de applicatie goed te testen is dan ook de applicatie gebruikt op lange termijn zodat de softwareontwikkelaar ook weet of het over drie uur nog steeds zal werken. Hieronder is een voorbeeld \ref{fig:guitest} hoe de user interface eruitziet. 
 \begin{figure}[h!]
 	\centering
-	\caption{Desktop applicatie om Satellite te testen}
+	\caption{Desktopapplicatie om Satellite te testen}
 	\label{fig:guitest}
 	\includegraphics[width=\linewidth]{testen/GUI.png}
 \end{figure}

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 835 529" style="enable-background:new 0 0 835 529;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#000000;}
+	.st2{font-family:'ArialMT';}
+	.st3{font-size:12px;}
+	.st4{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st5{stroke:#000000;stroke-miterlimit:10;}
+	.st6{fill:#E1D5E7;stroke:#9673A6;}
+	.st7{fill:#FFE6CC;stroke:#D79B00;}
+	.st8{fill:#DAE8FC;stroke:#6C8EBF;}
+	.st9{fill:#D5E8D4;stroke:#82B366;}
+	.st10{fill:#F5F5F5;stroke:#666666;}
+	.st11{fill:#333333;}
+	.st12{fill:#FFF2CC;stroke:#D6B656;stroke-miterlimit:10;}
+	.st13{fill:none;stroke:#666666;stroke-miterlimit:10;stroke-dasharray:3,3;}
+	.st14{fill:#666666;stroke:#666666;stroke-miterlimit:10;}
+</style>
+<path class="st0" d="z"/>
+<g>
+	<rect x="0.5" y="0.5" pointer-events="all" class="st1" width="560" height="527"/>
+	<rect x="9.5" y="6.5" pointer-events="all" class="st0" width="60" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 18.1543 20.5)" class="st2 st3">Satellite</text>
+	</g>
+	<path pointer-events="stroke" class="st4" d="M469.5,118.1V54.5c0-6.7-3.3-10-10-10l-78.7,0"/>
+	<path pointer-events="all" class="st5" d="M469.5,123.4l-3.5-7l3.5,1.8l3.5-1.8L469.5,123.4z"/>
+	<path pointer-events="all" class="st5" d="M375.6,44.5l7-3.5l-1.8,3.5l1.8,3.5L375.6,44.5z"/>
+	<path pointer-events="stroke" class="st4" d="M535.9,154.5h172.3"/>
+	<path pointer-events="all" class="st5" d="M530.6,154.5l7-3.5l-1.8,3.5l1.8,3.5L530.6,154.5z"/>
+	<path pointer-events="all" class="st5" d="M713.4,154.5l-7,3.5l1.8-3.5l-1.8-3.5L713.4,154.5z"/>
+	<rect x="409.5" y="124.5" pointer-events="all" class="st6" width="120" height="60"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 426.1406 158.5)" class="st2 st3">Applicatie logica</text>
+	</g>
+	<rect x="254.5" y="14.5" pointer-events="all" class="st7" width="120" height="60"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 276.1533 48.5)" class="st2 st3">Communicatie</text>
+	</g>
+	<rect x="250.5" y="270.5" pointer-events="all" class="st8" width="120" height="60"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 281.4844 304.5)" class="st2 st3">Sensor 1...</text>
+	</g>
+	<rect x="17.5" y="221.5" pointer-events="all" class="st9" width="120" height="57"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 41.8193 253.5)" class="st2 st3">Sensor driver</text>
+	</g>
+	<rect x="714.5" y="124.5" pointer-events="all" class="st10" width="120" height="60"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 739.4873 158.5)" class="st11 st2 st3">Hoofdsystem</text>
+	</g>
+	<rect x="17.5" y="294.5" pointer-events="all" class="st9" width="120" height="57"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 41.8193 326.5)" class="st2 st3">Sensor driver</text>
+	</g>
+	<path pointer-events="stroke" class="st4" d="M213.8,288.5h7.6c5.1,0,7.6,2,7.6,6v3c0,2,2.5,3,7.6,3h7.6"/>
+	<path pointer-events="all" class="st5" d="M208.6,288.5l7-3.5l-1.8,3.5l1.8,3.5L208.6,288.5z"/>
+	<path pointer-events="all" class="st5" d="M249.4,300.5l-7,3.5l1.8-3.5l-1.8-3.5L249.4,300.5z"/>
+	<path pointer-events="stroke" class="st4" d="M168.1,288.5h-6.8c-4.5,0-6.8-3.3-6.8-10V260c0-6.7-1.8-10-5.3-10h-5.3"/>
+	<path pointer-events="all" class="st5" d="M173.4,288.5l-7,3.5l1.8-3.5l-1.8-3.5L173.4,288.5z"/>
+	<path pointer-events="all" class="st5" d="M138.6,250l7-3.5l-1.8,3.5l1.8,3.5L138.6,250z"/>
+	<path pointer-events="stroke" class="st4" d="M168.1,288.5h-6.8c-4.5,0-6.8,3.3-6.8,10V313c0,6.7-1.8,10-5.3,10h-5.3"/>
+	<path pointer-events="all" class="st5" d="M173.4,288.5l-7,3.5l1.8-3.5l-1.8-3.5L173.4,288.5z"/>
+	<path pointer-events="all" class="st5" d="M138.6,323l7-3.5l-1.8,3.5l1.8,3.5L138.6,323z"/>
+	<path pointer-events="all" class="st12" d="M174.5,266.5l33,22l-33,22V266.5z"/>
+	<rect x="159.5" y="221.5" pointer-events="all" class="st0" width="81" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 164.8193 235.5)" class="st2 st3">Preprocessor</text>
+	</g>
+	<rect x="250.5" y="356.5" pointer-events="all" class="st8" width="120" height="60"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 279.8203 390.5)" class="st2 st3">Sensor ......</text>
+	</g>
+	<rect x="17.5" y="367.5" pointer-events="all" class="st9" width="120" height="57"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 41.8193 399.5)" class="st2 st3">Sensor driver</text>
+	</g>
+	<rect x="17.5" y="440.5" pointer-events="all" class="st9" width="120" height="57"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 41.8193 472.5)" class="st2 st3">Sensor driver</text>
+	</g>
+	<path pointer-events="stroke" class="st13" d="M213.9,433.5h7.6c5,0,7.6-3.3,7.6-10v-27c0-6.7,2.5-10,7.6-10h7.6"/>
+	<path pointer-events="all" class="st14" d="M208.6,433.5l7-3.5l-1.8,3.5l1.8,3.5L208.6,433.5z"/>
+	<path pointer-events="all" class="st14" d="M249.4,386.5l-7,3.5l1.8-3.5l-1.8-3.5L249.4,386.5z"/>
+	<path pointer-events="stroke" class="st13" d="M168.1,433.5h-6.8c-4.5,0-6.8-3.3-6.8-10V406c0-6.7-1.8-10-5.3-10h-5.3"/>
+	<path pointer-events="all" class="st14" d="M173.4,433.5l-7,3.5l1.8-3.5l-1.8-3.5L173.4,433.5z"/>
+	<path pointer-events="all" class="st14" d="M138.6,396l7-3.5l-1.8,3.5l1.8,3.5L138.6,396z"/>
+	<path pointer-events="stroke" class="st13" d="M168.1,433.5h-6.8c-4.5,0-6.8,3.3-6.8,10V459c0,6.7-1.8,10-5.3,10h-5.3"/>
+	<path pointer-events="all" class="st14" d="M173.4,433.5l-7,3.5l1.8-3.5l-1.8-3.5L173.4,433.5z"/>
+	<path pointer-events="all" class="st14" d="M138.6,469l7-3.5l-1.8,3.5l1.8,3.5L138.6,469z"/>
+	<path pointer-events="all" class="st12" d="M174.5,411.5l33,22l-33,22V411.5z"/>
+	<rect x="143" y="367.5" pointer-events="all" class="st0" width="96" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 155.8193 381.5)" class="st2 st3">Preprocessor</text>
+	</g>
+	<path pointer-events="stroke" class="st4" d="M441,329.5v-19c0-6.7-3.3-10-10-10h-54.1"/>
+	<path pointer-events="all" class="st5" d="M371.6,300.5l7-3.5l-1.8,3.5l1.8,3.5L371.6,300.5z"/>
+	<path pointer-events="stroke" class="st13" d="M441,351.5v25c0,6.7-3.3,10-10,10h-54.1"/>
+	<path pointer-events="all" class="st14" d="M371.6,386.5l7-3.5l-1.8,3.5l1.8,3.5L371.6,386.5z"/>
+	<path pointer-events="stroke" class="st4" d="M457.5,340.5h6c4,0,6-3.3,6-10l0-139.6"/>
+	<path pointer-events="all" class="st5" d="M469.5,185.6l3.5,7l-3.5-1.8l-3.5,1.8L469.5,185.6z"/>
+	<path pointer-events="all" class="st12" d="M424.5,318.5l33,22l-33,22V318.5z"/>
+	<rect x="457.5" y="347.5" pointer-events="all" class="st0" width="81" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 462.8193 361.5)" class="st2 st3">Preprocessor</text>
+	</g>
+</g>
+<path class="st0" d="z"/>
+</svg>

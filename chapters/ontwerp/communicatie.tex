@@ -1,9 +1,9 @@
-De Satellite heeft verschillende communicatie middelen, onderanderen ethernet en CAN Bus. Er zal gefocust worden op communicatie via CAN BUS aangezien dit het meest complex opgebouwd is.  De communicatie via CAN moet voldoen aan het volgende deelvraag: \textbf{Hoe kan er een robuuste communicatie gecreëerd worden tussen het hoofdsysteem en Satellite?}. Er moet gekeken worden hoe dit stabiel en robuust gedaan kan worden.\newline
+De Satellite heeft verschillende communicatiemiddelen, onder anderen ethernet en CAN Bus. Er zal gefocust worden op communicatie via CAN BUS aangezien dit het meest complex opgebouwd is.  De communicatie via CAN moet voldoen aan de volgende deelvraag: \textbf{Hoe kan er een robuuste communicatie gecreëerd worden tussen het hoofdsysteem en Satellite?} Er moet gekeken worden hoe dit stabiel en robuust gedaan kan worden.\newline
 
 
-\noindent CAN is een groot onderdeel van de Sensor Maritime infrastructuur. De CAN communicatie wordt gebruik om te kunnen communiceren met het hoofdsysteem genaamd het hub. Hiervoor wordt een master en slave configuratie gebruikt. Het hub is de master en de Satellite en andere eindsystemen zullen dan de slave zijn. De master bepaalt hoe een slave apparaat zich gaat gedragen. CAN staat voor controlled area network, en maakt gebruik van een broadcast systeem. Dit betekent dat alle eindsystemen alle berichten ontvangen, De master kan niet specifiek naar een slave data sturen \autocite{can}. \newline
+\noindent CAN is een groot onderdeel van de Sensor Maritime infrastructuur. De CAN communicatie wordt gebruik om te kunnen communiceren met het hoofdsysteem. Hiervoor wordt een master en slave configuratie gebruikt. Het hoofdsysteem is de master en de Satellite en andere eindsystemen zullen dan de slave zijn. De master bepaalt hoe een slave apparaat zich gaat gedragen. CAN staat voor controlled area network, en maakt gebruik van een broadcast systeem. Dit betekent dat alle eindsystemen alle berichten ontvangen, De master kan niet specifiek naar een slave data sturen \autocite{can}. \newline
 
-\noindent Sensor Maritime heeft een eigen protocol ontwikkeld wat gebouwd is op het CAN Bus. Dit zal deels aangepast moeten worden om de Satellite sensoren te kunnen ondersteunen. De huidige protocol wat gebruikt wordt is in afbeelding \ref{fig:canprotocol} te zien. Het protocol is opgebouwd uit blokjes wat uit 1 of 2 bytes bestaat. In tabel \ref{tab:cansensorprotocol} wordt beschreven wat de taak is van het blokje. 
+\noindent Sensor Maritime heeft een eigen protocol ontwikkeld wat gebouwd is op het CAN Bus. Dit zal deels aangepast moeten worden om de Satellite sensoren te kunnen ondersteunen. Het huidige protocol wat gebruikt wordt is in afbeelding \ref{fig:canprotocol} te zien. Het protocol is opgebouwd uit blokjes wat uit 1 of 2 bytes bestaat. In tabel \ref{tab:cansensorprotocol} wordt beschreven wat de taak is van het blokje.
 \begin{figure}[h!]
 	\label{fig:canprotocol}
 	\caption{Sensor Maritime CAN protocol}
@@ -24,27 +24,27 @@ De Satellite heeft verschillende communicatie middelen, onderanderen ethernet en
 			& & 1 voor request \\ 
 	DLC		& DLC is een afkorting voor Data Length Code.             & \\ 
 	Payload	& De data die aan de hand de flag. & Verschillend per bericht\\
-	CRC		& CRC staat voor Cyclic redundancy check, dit beschrijft hoe groot het bericht is wat verstuurd word, Hiermee kan de ontvanger valideren of het juiste is ontvangen. & Verschillend per bericht\\ \bottomrule
+	CRC		& CRC staat voor Cyclic redundancy check, dit beschrijft hoe groot het bericht is wat verstuurd wordt, Hiermee kan de ontvanger valideren of het juiste is ontvangen. & Verschillend per bericht\\ \bottomrule
 	\end{tabular}
 \end{table}
 
 \subsection{Probleemstelling}
-Het huidige protocol ondersteunt de Satellite nog niet. De Satellite is een universele systeem, waarmee verschillende sensoren verbonden aan de Satellite is. Het huidige protocol is zo opgebouwd dat er maar een payload opgestuurt kan worden dit betekent als de Satellite twee sensoren op wil sturen dat het in de payload gestopt moet worden, hiervoor moet een vast structuur bepaalt worden zodat de ontvanger weet wat er ontvangen. Om het volgende deelvraag te kunnen beantwoorden zal er een aanpassing gemaakt moeten worden aan de bestaande CAN protocol payload van Sensor Maritime. Hiervoor zijn verschillende oplossingen voor bedacht dat hieronder wordt beschreven. Uiteindelijk wordt een conclusie genomen welke oplossing gekozen is en waarom. Voor alle payload structuren die beschreven worden zal er gebruikt gemaakt worden van hetzelfde voorbeeld. Voor de voorbeelden worden er twee sensoren gebruikt die de Satellite zal ondersteunen, deze twee sensoren zijn de inductie sensor en de altimeter sensor. De twee sensoren zullen gerepresenteerd wordt als een getal wat van 0 begint. Hieronder is een tabel \ref{tab:SensorRep} die een overzicht geeft.
+Het huidige CAN BUS protocol ondersteunt de Satellite nog niet. De Satellite is een universeel systeem, waarmee verschillende sensoren verbonden aan de Satellite zijn. Het huidige protocol is zo opgebouwd dat er maar een payload opgestuurd kan worden. Dit betekent dat als de Satellite twee sensoren op wil sturen dat het in de payload gestopt moet worden, hiervoor moet een vast structuur bepaald worden zodat de ontvanger weet wat er ontvangen wordt. Om dit probleem op te lossen zal er een aanpassing gemaakt moeten worden aan de bestaande CAN-protocol payload van Sensor Maritime. Hiervoor zijn verschillende oplossingen voor bedacht dat hieronder worden beschreven. Uiteindelijk wordt een conclusie genomen welke oplossing gekozen is en waarom. Voor alle payload structuren die beschreven worden zal er gebruikt gemaakt worden van hetzelfde voorbeeld. Voor de voorbeelden worden er twee sensoren gebruikt die de Satellite zal ondersteunen, deze twee sensoren zijn de inductie sensor en de altimeter sensor. De sensoren zullen gerepresenteerd wordt als een getallen lijst wat van 0 begint. In het huidige systeem zijn er maar twee sensoren. Dit kan in de toekomst uitgebreid worden. Hieronder is een tabel \ref{tab:SensorRep} die een overzicht geeft.
 
 \begin{table}[h!]
 	\centering
-	\caption{Sensor id representatie}
+	\caption{Sensor identificatie representatie}
 	\label{tab:SensorRep}
-	\begin{tabular}{p{2cm}p{6cm}}
+	\begin{tabular}{p{4cm}p{6cm}}
 	\toprule
-	Sensor & ID        \\ \midrule
+	Identificatie & Sensor        \\ \midrule
 	0      & Inductor  \\
 	1      & Altimeter \\ \bottomrule
 	\end{tabular}%
 \end{table}
 
 \subsection{Structuur 1}
-De eerste structuur is ontworpen om zo simpel mogelijk te zijn. Het idee bij dit ontwerp is dat je een id hebt wat de sensor aangeeft en vervolgens gelijk de waarde van sensor. Dit bedaarnaast voegt dit ook maar 1 byte toe aan de payload per sensor. Dit betekent dat het totale packet maar een aantal bytes groter zal zijn. De afbeelding \ref{fig:Structure1} geeft het opbouw en voorbeeld weer, hierbij kun je de twee sensoren zien met de id en de waarden.
+De eerste structuur is ontworpen om zo simpel mogelijk te zijn. Het idee bij dit ontwerp is dat je een identificatie hebt wat de sensor aangeeft en vervolgens gelijk de waarde van sensor. Daarnaast voegt dit ook maar 1 byte toe aan de payload per sensor. Dit betekent dat het totale packet maar een aantal bytes groter zal zijn. De afbeelding \ref{fig:Structure1} geeft de opbouw en voorbeeld weer, hierbij kun je de twee sensoren zien met de identificatie en de waarden.
 \begin{figure}[h!]
 	\centering
 	\label{fig:Structure1}
@@ -55,7 +55,7 @@ De eerste structuur is ontworpen om zo simpel mogelijk te zijn. Het idee bij dit
 
 \newpage
 \subsection{Structuur 2}
-Structuur 2 is een heel uitgebreid opgezet, om zoveel mogelijk te ondersteunen. Ten eerste ondersteunt dit meerdere datatypes, bijvoorbeeld 8, 16, 32 bit nummers maar ook 32 bit en 64 bit decimalen. Ten tweede geeft dit structuur duidelijk aan wat de grootte is van een packet. Packet grootte, geeft aan de het hele sensor packet grootte in bytes. ID geeft aan wat voor sensor het is. Dan komen er drie kolumen voor de waarde, ten eerste wordt de waarde grootte in bytes gegeven, dan de waarde type en uiteindelijk de echte waarde. In het volgende afbeelding \ref{fig:Structure2} is een overzicht te zien.
+Structuur 2 is opgezet om zoveel mogelijk te ondersteunen. Ten eerste ondersteunt dit meerdere datatypes, bijvoorbeeld 8, 16, 32 bit nummers maar ook 32 bit en 64 bit decimalen. Ten tweede geeft dit structuur duidelijk aan wat de grootte is van een packet. Packet grootte, geeft aan de hele sensor packet grootte in bytes. De identificatie geeft aan wat voor sensor het is. Dan komen er drie kolommen voor de waarde, ten eerste wordt de waarde grootte in bytes gegeven, dan de waarde type en uiteindelijk de echte waarde. In de volgende afbeelding \ref{fig:Structure2} is een overzicht te zien.
 \begin{figure}[h!]
 	\centering
 	\label{fig:Structure2}
@@ -64,7 +64,7 @@ Structuur 2 is een heel uitgebreid opgezet, om zoveel mogelijk te ondersteunen. 
 \end{figure}
 
 \subsection{Structuur 3}
-Dit is het laatste structuur die ontworpen is, dit is een combinatie van structuur 1 en structuur 2. Dit heeft drie onderdelen voor een sensor, ten eerste zal de sensor id meegegeven worden. Daarna komt de waarde grootte in bytes, en uiteindelijk wordt de waarde gegeven. In afbeelding \ref{fig:Structure3} wordt het structuur en een voorbeeld weergeven.
+Dit is het laatste structuur die ontworpen is, dit is een combinatie van structuur 1 en structuur 2. Dit heeft drie onderdelen voor een sensor, ten eerste zal de sensor identificatie meegegeven worden. Daarna komt de waarde grootte in bytes, en uiteindelijk wordt de waarde gegeven. In afbeelding \ref{fig:Structure3} wordt het structuur en een voorbeeld weergeven.
 \begin{figure}[h!]
 	\label{fig:Structure3}
 	\caption{Opbouw en voorbeeld van de payload structuur 3}
@@ -73,7 +73,7 @@ Dit is het laatste structuur die ontworpen is, dit is een combinatie van structu
 
 \newpage
 \subsection{Communicatie flow}
-Hieronder is een overzicht \ref{fig:comflow} te zien hoe de communicatie via CAN bus gedaan wordt als er een bericht ontvangen wordt van de eindsysteem. Om een connectie te creeëren zijn een aantal stappen nodig om dit goed af te handelen. De hub kan verschillende type berichten sturen, in het vorige hoofdstuk is er vooral gefocust op de sensor payload structuur. Maar voor elke type bericht zal het apart afgehandeld worden. Er wordt dus eerst gecheckt wat voor type bericht het is, en daarvan splits het op in 2 sectoren. De linker sector is het simpel structuur waarbij alleen wat data opgehaald of karakter meegegeven moet worden. Bij de rechter sector wordt het payload structuur opgezet als eerste voor elke sensor dat de Satellite heeft. Dan wordt de payload berekend in bytes, met de grootte in bytes kan het packet gemaakt worden. Vervolgens wordt het opgestuurd, dit zal een status code teruggeven, als de communicatie al bezig is met iets versturen zal hier op gewacht moeten worden. Bij andere errors, failures zal een rood lichtje branden als status.
+Hieronder is een overzicht \ref{fig:comflow} te zien hoe de communicatie via CAN-bus gedaan wordt als er een bericht ontvangen wordt van het eindsysteem. Om een connectie te creeëren zijn een aantal stappen nodig om dit goed af te handelen. Het hoofdsysteem kan verschillende type berichten sturen, in het vorige hoofdstuk is er vooral gefocust op de sensor payload structuur. Maar voor elke type bericht zal het apart afgehandeld worden. Er wordt dus eerst gecheckt wat voor type bericht het is, en daarvan splits het op in 2 sectoren. De linker sector is het simpel structuur waarbij alleen wat data opgehaald of karakter meegegeven moet worden. Bij de rechter sector wordt het payload structuur opgezet als eerste voor elke sensor dat de Satellite heeft. Dan wordt de payload berekend in bytes, met de grootte in bytes kan het packet gemaakt worden. Vervolgens wordt het opgestuurd, dit zal een status code teruggeven, als de communicatie al bezig is met iets versturen zal hierop gewacht moeten worden. Bij andere errors, failures zal een rood lichtje branden als status.
 \begin{figure}[h!]
 	\centering
 	\label{fig:comflow}
@@ -83,9 +83,7 @@ Hieronder is een overzicht \ref{fig:comflow} te zien hoe de communicatie via CAN
 
 \newpage
 \subsection{Conclusie}
-In dit subhoofdstuk is gekeken naar een manier om de huidige CAN protocol zo aan te passen zo dat het beter aansluit op de Satellite. De Satellite heeft verschillende sensoren wat allemaal uiteindelijk in een payload moet komen. Omdat het hoofdsysteem niet weet wat voor sensoren de Satellite op het moment heeft betekent dat dit problemen kan veroorzaken. De hoofdsysteem weet dan niet wat ontvangen worden, ontvangt het hoofdsysteem een data packet of meerdere packet. Hiervoor moet een oplossing verzonnen worden, in dit subhoofdstuk is er gekeken naar verschillende structuren om het volgende deelvraag te beantwoorden: \textbf{Hoe kan er een robuuste  communicatie gecreëerd worden tussen het hoofdsysteem en Satellite?} \newline
-
-\noindent Het nieuwe structuur voor de payload moet simpel te implementeren zijn, maar de payload moet ook nog niet veel groter worden. De eerste structuur is het simpelste maar is lastiger om te implementeren. Het grootste probleem is dat je in de buffer niet waar de volgende sensor begint. De waarde van sensor kan bijvoorbeeld 2 bytes zijn of 8 bytes. Het voordeel van structuur 1 is dat het een kleine structuur is waardoor de data die opgestuurd wordt niet veel groter wordt. Structuur 2 is het tegenovergestelde van structuur 1, structuur 2 is makkelijk te implementeren omdat je precies weet wat je kan verwachten per byte. Het probleem van structuur 2 is dat het veel groter is in bytes. Uiteindelijk is er nog structuur 3 en dat zit tussen structuur 1 en 2, in vergelijking met hoe simpel is het om te implementeren en en packet grootte. Hieronder is een samenvatting de structuren in tabel \ref{tab:samenvattingstructuur}.
+In dit subhoofdstuk is gekeken naar een manier om de huidige CAN-protocol zo aan te passen zo dat het beter aansluit op de Satellite. De Satellite heeft verschillende sensoren die allemaal uiteindelijk in een payload moet komen. Omdat het hoofdsysteem niet weet wat voor sensoren de Satellite op het moment heeft betekent dat dit problemen kan veroorzaken. De nieuwe structuur voor de payload moet simpel te implementeren zijn, maar de payload moet ook nog niet veel groter worden. De eerste structuur is het simpelste maar is lastiger om te implementeren. Het grootste probleem is dat je in de buffer niet waar de volgende sensor begint. De waarde van sensor kan bijvoorbeeld 2 bytes zijn of 8 bytes. Het voordeel van structuur 1 is dat het een kleine structuur is waardoor de data die opgestuurd wordt niet veel groter wordt. Structuur 2 is het tegenovergestelde van structuur 1, structuur 2 is makkelijk te implementeren omdat je precies weet wat je kan verwachten per byte. Het probleem van structuur 2 is dat het veel groter is in bytes. Uiteindelijk is er nog structuur 3 en dat zit tussen structuur 1 en 2, in vergelijking met hoe simpel is het om te implementeren en en packet grootte. Hieronder is een samenvatting de structuren in tabel \ref{tab:samenvattingstructuur}.
 
 \begin{table}[h!]
 	\centering

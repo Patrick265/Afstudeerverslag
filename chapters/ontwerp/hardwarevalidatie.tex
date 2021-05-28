@@ -1,91 +1,91 @@
-Elke nieuwe hardware wat aan Satellite wordt geleverd zal door Sensor Maritime moeten gevalideerd moeten worden. Er zal als eerst beschreven worden welke porten er getest worden. De volgende type porten worden besproken. Ten eerste zal er gekeken worden naar DIP schakelaars, digitale output, analoge input, relay en uiteindelijk seriele communicatie. \newline
+Elke nieuw Satellite hardware wat wordt geleverd aan Sensor Maritime moeten gevalideerd moeten worden. Er zal als eerst beschreven worden welke porten er getest worden. De volgende type porten worden besproken. Ten eerste zal er gekeken worden naar DIP schakelaars, digitale output, analoog input, relay en uiteindelijk seriële communicatie. \newline
 
-\noindent De Satellite heeft verschilllende porten porten zijn die gebruikt kan worden. Elke type port wordt beschreven in de volgende hoofdstukken. In deze hoofdstukken wordt beschreven wat de port moet doen en hoe dit getest gaat worden en uiteindelijk wat het verwachte resultaat is.
+\noindent De Satellite heeft verschillende porten zijn die gebruikt kan worden. Elke type port wordt beschreven in de volgende hoofdstukken. In deze hoofdstukken wordt beschreven wat de port moet doen en hoe dit getest gaat worden en uiteindelijk wat het verwachte resultaat is.
 
 \subsection{DIP switch}
-Een DIP switch bestaat uit een aantal schakelaars die je kan of uit kan zitten \autocite{DIP}. Op de Satellite is er een DIP switch aan bord, die acht schakelaar is heeft. Zeven van de acht worden op het moment gebruikt. Het volgende tabel \ref{tab:hw_val_dip} geeft aan wat de acties zijn als je de schakelaar aan of uit zet. De eerste drie van de schakelaars worden gebruikt als configuratie voor andere porten die worden beschreven in hoofdstuk \ref{Analog Input Signaal}. De laatste vier schakelaars zetten een specifiek pin van de microcontroller hoog of laag.
+Een DIP switch bestaat uit een aantal schakelaars die je aan of uit kan zitten \autocite{DIP}. Op de Satellite is er een DIP switch aan boord, die acht schakelaar is heeft. Zeven van de acht worden op het moment gebruikt voor verschillende doeleinden. De volgende tabel \ref{tab:hw_val_dip} geeft aan wat de acties zijn als je de schakelaar aan of uit zet. De eerste drie van de schakelaars worden gebruikt als configuratie voor andere porten die worden beschreven in hoofdstuk \ref{Analog Input Signaal}. De laatste vier schakelaars zetten een specifiek pin van de microcontroller hoog of laag.
 \begin{table}[h!]
 	\caption{DIP switch porten die gevalideerd moeten worden}
-	\begin{tabular}{llllp{10cm}}
+	\begin{tabular}{lllp{12cm}}
 	\toprule
-	\textbf{Naam} & \textbf{GPIO} & \textbf{Pin} & \textbf{IO} & \textbf{Beschrijving}	\\ \toprule
-	PU1		& -			& - 	& -    		& Verandert de analog input 1 voltage tussen 0 en 24V	\\
-	-		& -			& - 	& -    		& Wordt niet gebruikt.								\\
-	PU2		& -			& - 	& -    		& Verandert de analog input 2 voltage tussen 0 en 24V	\\
-	PU3		& -			& - 	& -    		& Verandert de analog input 3 voltage tussen 0 en 24V	\\
-	ADD0 	& 3			& 10	& Input		& Zet de pin hoog of laag, aan de hand van of het aan staat of niet.		\\
-	ADD1 	& 3			& 11	& Input		& Zet de pin hoog of laag, aan de hand van of het aan staat of niet.		\\
-	ADD2 	& 3			& 12	& Input		& Zet de pin hoog of laag, aan de hand van of het aan staat of niet.		\\
-	ADD3 	& 3			& 0 	& Input		& Zet de pin hoog of laag, aan de hand van of het aan staat of niet.		\\ \bottomrule
+	\textbf{Naam} & \textbf{Pin} & \textbf{IO} & \textbf{Beschrijving}	\\ \toprule
+	PU1		& - 	& -    		& Verandert de analoog input 1 voltage tussen 0 en 24V	\\
+	-		& - 	& -    		& Wordt niet gebruikt.								\\
+	PU2		& - 	& -    		& Verandert de analoog input 2 voltage tussen 0 en 24V	\\
+	PU3		& - 	& -    		& Verandert de analoog input 3 voltage tussen 0 en 24V	\\
+	ADD0 	& 10	& Input		& Zet de pin hoog of laag, aan de hand van of het aan staat of niet.		\\
+	ADD1 	& 11	& Input		& Zet de pin hoog of laag, aan de hand van of het aan staat of niet.		\\
+	ADD2 	& 12	& Input		& Zet de pin hoog of laag, aan de hand van of het aan staat of niet.		\\
+	ADD3 	& 0 	& Input		& Zet de pin hoog of laag, aan de hand van of het aan staat of niet.		\\ \bottomrule
 	\end{tabular}
 	\label{tab:hw_val_dip}
 \end{table}
 
 \subsection{Digital output signaal}
-De digitale output signaal kan alleen hoog of uit gezet worden, dit betekent dat het geen input modus heeft. De Satellite heeft vier digitale output porten die op 24V of 0V gezet kan worden. Het volgende tabel geeft een overzicht \ref{tab:hw_val_dio}.
+De digitale output signaal kan alleen aan- of uitgezet worden, dit betekent dat het geen input modus heeft. De Satellite heeft vier digitale output porten die op 24V of 0V gezet kan worden. De volgende tabel geeft een overzicht \ref{tab:hw_val_dio}.
 \begin{table}[h!]
 	\caption{Digital output signalen die gevalideerd moeten worden}
-	\begin{tabular}{llllp{10cm}}
+	\begin{tabular}{lllp{12cm}}
 	\toprule
-	\textbf{Naam} & \textbf{GPIO} & \textbf{Pin} & \textbf{IO} & \textbf{Beschrijving}				 	\\ \toprule
-	D1			& 1			& 6    	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\
-	D2			& 1			& 7    	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\
-	D3			& 3			& 3    	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\
-	D4			& 3			& 2   	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\ \bottomrule
+	\textbf{Naam} & \textbf{Pin} & \textbf{IO} & \textbf{Beschrijving}				 	\\ \toprule
+	D1			  & 6    	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\
+	D2			  & 7    	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\
+	D3			  & 3    	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\
+	D4			  & 2   	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\ \bottomrule
 	\end{tabular}
 	\label{tab:hw_val_dio}
 \end{table}
 
-\subsection{Analog input signaal} \label{Analog Input Signaal}
-De analog signalen kan alleen uitgelezen worden, dit betekent dat het alleen een input modus heeft. De Satellite heeft drie analoge input porten aan bord. In het volgende tabel wordt een overzicht gegeven \ref{tab:hw_val_ai}.
+\subsection{Analoog input signaal} \label{Analog Input Signaal}
+De analoog signalen kunnen alleen uitgelezen worden, dit betekent dat het alleen een input modus heeft. De Satellite heeft drie analoog input porten aan bord. In de volgende tabel wordt een overzicht gegeven \ref{tab:hw_val_ai}.
 \begin{table}[h!]
-	\caption{Analog input signalen die gevalideerd moeten worden}
-	\begin{tabular}{llllp{9cm}}
+	\caption{Analoog input signalen die gevalideerd moeten worden}
+	\begin{tabular}{lllp{12cm}}
 	\toprule
-	\textbf{IO} & \textbf{GPIO} & \textbf{Pin} & \textbf{Input/Output} & \textbf{Beschrijving}			\\ \toprule
-	AI1			& 14		& 2    	& Input		& Analoge input signaal van 0 tot 24 volt.					\\
-	AI2			& 14		& 3    	& Input		& Analoge input signaal van 0 tot 24 volt.					\\
-	AI3			& 14		& 12   	& Input		& Analoge input signaal van 0 tot 24 volt.					\\  \bottomrule
+	\textbf{IO} & \textbf{Pin} & \textbf{Input/Output} & \textbf{Beschrijving}			\\ \toprule
+	AI1			& 2    	& Input		& Analoog input signaal van 0 tot 24 volt.					\\
+	AI2			& 3    	& Input		& Analoog input signaal van 0 tot 24 volt.					\\
+	AI3			& 12   	& Input		& Analoog input signaal van 0 tot 24 volt.					\\  \bottomrule
 	\end{tabular}
 	\label{tab:hw_val_ai}
 \end{table}
 
 \subsection{Relay}
-Er is een relay verbonden aan de microcontroller. Een relay is een mechanisch apparaat dat een elektrische connectie maakt tussen twee of meer punten op reactie van de microcontroller. Als er 3,3 volt op de relay gezet wordt zal de relay sluiten en bij 0 volt zal het weer openen gaan. Omdat het mechanisch is moet je dit ook kunnen horen \autocite{relay}. Hieronder is een overzicht van de relay \ref{tab:hw_val_relay}.
+Er is een relay standaard op de Satellite. Een relay is een mechanisch apparaat dat een elektrische connectie maakt tussen twee of meer punten op reactie van de microcontroller. Als er 3,3 volt op de relay gezet wordt zal de relay sluiten en bij 0 volt zal het weer openen gaan. Omdat het mechanisch is moet je dit ook kunnen horen \autocite{relay}. Hieronder is een overzicht van de relay \ref{tab:hw_val_relay}.
 
 \begin{table}[h!]
 	\caption{Relay signaal die gevalideerd moeten worden}
-	\begin{tabular}{llllp{9cm}}
+	\begin{tabular}{lllp{12cm}}
 	\toprule
-	\textbf{IO} & \textbf{GPIO} & \textbf{Pin} & \textbf{Input/Output} & \textbf{Beschrijving}			\\ \toprule
-	Relay		& 3 & 1   	& Output		& Een mechanische apparaat was dicht of opengaat aan de hand of er 3,3 volt of niet op staat.	\\ \bottomrule
+	\textbf{IO} & \textbf{Pin} & \textbf{Input/Output} & \textbf{Beschrijving}			\\ \toprule
+	Relay		& 1   	& Output		& Een mechanisch apparaat was dicht of opengaat aan de hand of er 3,3 volt of niet op staat.	\\ \bottomrule
 	\end{tabular}
 	\label{tab:hw_val_relay}
 \end{table}
 
-\subsection{Serieel Communicatie}
-De Satellite heeft verschillende porten voor seriele communicatie aanbord. De seriele communicatie middelen zullen gebruikt worden voor communicatie met een eindsysteem of sensoren. Sommige sensoren die Sensor Maritime gebruiken sturen de gegevens via seriele communicatie over. Omdat het zoveel functionaliteiten heeft zal dit grondig getest moeten worden. Satellite heeft verschillende varianten van seriele communicatie, ten eerste zijn er twee UART verbindingen, een RS232 verbinding, en uiteindelijk een RS422 communicatie lijn. \newline
+\subsection{Seriële Communicatie}
+De Satellite heeft verschillende porten voor seriële communicatie aanboord. De seriële communicatiemiddelen zullen gebruikt worden voor communicatie met een hoofdsysteem of sensoren. Sommige sensoren die Sensor Maritime gebruiken sturen de gegevens via seriële communicatie over. Omdat het zoveel functionaliteiten heeft zal dit grondig getest moeten worden. Satellite heeft verschillende varianten van seriële communicatie, ten eerste zijn er twee UART-verbindingen, een RS232 verbinding, en uiteindelijk een RS422 communicatie lijn. \newline
 
-\noindent UART staat voor Universal asynchronous receiver-transmitter. UART stuurt asynchroon data over dit betekent dat er geen klok signaal is die data synchroon maakt. UART wordt universeel genoemd omdat het geconfigureerd om verschillende seriele protocollen te ondersteunen. In plaats van een klok signaal wordt er gebruikt gemaakt van een start bit en een stop bit. Data wordt verstuurd via UART via de gebruiker gespecificeerd frequentie, dit wordt ook wel baudrate genoemd, baudrate wordt gespecificeerd als in bits per seconden (bps) \autocite{UART}. \newline
+\noindent UART staat voor Universal asynchronous receiver-transmitter. UART stuurt asynchroon data over, dit betekent dat er geen kloksignaal is die data synchroon maakt. UART wordt universeel genoemd omdat het geconfigureerd is om verschillende seriële protocollen te ondersteunen. In plaats van een klok signaal wordt er gebruikt gemaakt van een start bit en een stop bit. Data wordt verstuurd via UART via de gebruiker gespecificeerd frequentie, dit wordt ook wel baudrate genoemd, baudrate wordt gespecificeerd als in bits per seconden (bps) \autocite{UART}. \newline
 
-\noindent RS-232 is anders opgebouwd dan UART. RS-232 is een standaard gedefineerd signaal tussen twee apparaten, waar de signaal naam, doel, spanningniveau en pinnen zijn gedefineerd zijn. Een belangrijk verschil tussen RS-232 en UART is dat de spanningniveau hoger en negatief kan zijn. Het voltage bereik van RS-232 gaat -12 volt tot 12 volt \autocite{RS232}. \newline
+\noindent RS-232 is anders opgebouwd dan UART. RS-232 is een standaard gedefinieerd signaal tussen twee apparaten, waar de signaal naam, doel, spanningsniveauniveau en pinnen zijn gedefinieerd zijn. Een belangrijk verschil tussen RS-232 en UART is dat de spanningsniveauniveau hoger en negatief kan zijn. Het voltage bereik van RS-232 gaat -12 volt tot 12 volt \autocite{RS232}. \newline
 
-\noindent RS-422 is weer een andere vorm van seriele communicatie en heeft kenmerken van RS-232. Het verschil tussen RS-232 en RS-422 is dat het voor de communicatie vier lijnen gebruikt (RX-, RX+, TX+, TX-). Met de vier communicatielijnen kan er full duplex gecommuniceerd worden. Full duplex communicatie betekent dat er twee of meer apparaten in beide richting kan communiceren (ontvangen en verzenden op hetzelfde moment) \autocite{FullDuplex}. RS-232 heeft half-duplex dit houdt in dat via RS-232 alleen handeling gedaan kan worden, bijvoorbeeld eerst ontvangen en dan pas verzenden. \autocite{RS422}.
+\noindent RS-422 is weer een andere vorm van seriële communicatie en heeft kenmerken van RS-232. Het verschil tussen RS-232 en RS-422 is dat het voor de communicatie vier lijnen gebruikt (RX-, RX+, TX+, TX-). Met de vier communicatielijnen kan er full-duplex gecommuniceerd worden. Full-duplex communicatie betekent dat er twee of meer apparaten in beide richting kan communiceren (ontvangen en verzenden op hetzelfde moment) \autocite{FullDuplex}. RS-232 heeft half-duplex dit houdt in dat via RS-232 alleen handeling gedaan kan worden, bijvoorbeeld eerst ontvangen en dan pas verzenden. \autocite{RS422}. \newline
 
-\noindent In het volgende tabel \ref{tab:hw_val_serieel}wordt een overzicht gegeven van de seriele communicatie die verbonden zijn op de microcontroller. Voor de RS-422 communicatie is alleen twee communicatielijnen aangegeven, omdat dit zo verbonden is op de microcontroller. De Rx+, RX- en TX+, TX- lijnen worden samengevoegd door een chip en dan verbonden naar de microcontroller.
+\noindent In de volgende tabel \ref{tab:hw_val_serieel}wordt een overzicht gegeven van de seriële communicatie die verbonden zijn op de microcontroller. Voor de RS-422 communicatie is alleen twee communicatielijnen aangegeven, omdat dit zo verbonden is op de microcontroller. De Rx+, RX- en TX+, TX- lijnen worden samengevoegd door een chip en dan verbonden naar de microcontroller.
 \begin{table}[h!]
-	\caption{Seriele communicatie porten die gevalideerd moeten worden}
-	\begin{tabular}{llllp{9cm}}
+	\caption{Seriële communicatie porten die gevalideerd moeten worden}
+	\begin{tabular}{lllp{12cm}}
 	\toprule
-	\textbf{IO} & \textbf{GPIO} & \textbf{Pin} & \textbf{Input/Output} & \textbf{Beschrijving}	\\ \toprule
-	UART RX		& 5			& 0    	& Input		& Seriele communicatie ontvangst lijn.			\\
-	UART TX		& 5			& 1    	& Output	& Seriele communicatie versturen lijn.			\\
-	RS-232 RX	& 3			& 7    	& Input		& Seriele communicatie ontvangst lijn.			\\
-	RS-232 TX	& 3			& 8    	& Output	& Seriele communicatie versturen lijn.			\\
-	RS-422 RX	& 6			& 3    	& Input		& Seriele communicatie ontvangst lijn.			\\
-	RS-422 TX	& 3			& 13   	& Output	& Seriele communicatie versturen lijn.			\\
-	UART 2 RX	& 4			& 6    	& Input		& Seriele communicatie ontvangst lijn.			\\
-	UART 2 TX	& 4			& 7   	& Output	& Seriele communicatie versturen lijn.			\\ \bottomrule
+	\textbf{IO} & \textbf{Pin} & \textbf{Input/Output} & \textbf{Beschrijving}	\\ \toprule
+	UART RX		& 0    	& Input		& Seriële communicatie ontvangst lijn.			\\
+	UART TX		& 1    	& Output	& Seriële communicatie versturen lijn.			\\
+	RS-232 RX	& 7    	& Input		& Seriële communicatie ontvangst lijn.			\\
+	RS-232 TX	& 8    	& Output	& Seriële communicatie versturen lijn.			\\
+	RS-422 RX	& 3    	& Input		& Seriële communicatie ontvangst lijn.			\\
+	RS-422 TX	& 13   	& Output	& Seriële communicatie versturen lijn.			\\
+	UART 2 RX	& 6    	& Input		& Seriële communicatie ontvangst lijn.			\\
+	UART 2 TX	& 7   	& Output	& Seriële communicatie versturen lijn.			\\ \bottomrule
 	\end{tabular}
 	\label{tab:hw_val_serieel}
 \end{table}

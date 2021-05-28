@@ -19,7 +19,7 @@ Tijdens de afstudeerstage zijn er twee partijen betrokken, Sensor Maritime in Vu
 De onderzoeksvraag tijdens de afstudeerstage zal zijn: \textbf{Hoe kan een modulair softwaresysteem worden ontwikkeld voor de Satellite hardware zo dat verschillende sensoren ondersteunt worden en data verstuurd kan worden naar een eindsysteem?}
 
 \section{Deelvragen}
-Het systeem moet robuust en makkelijk uitbreidbaar zijn. Daar sluiten dan twee van de deelvragen dan ook aan. Het laatste deelvraag is dat er gekeken naar de hardware validatie. Dit is een extra onderdeel wat Sensor Maritime aan de stagair heeft gevraagd om een manier te ontwikkelen zodat er makkelijk nieuwe Satellite hardware getest kan worden.
+Het systeem moet robuust en makkelijk uitbreidbaar zijn. Daar sluiten dan twee van de deelvragen dan ook aan. Het laatste deelvraag is dat er gekeken naar de hardware validatie. Dit is een extra onderdeel wat Sensor Maritime aan de stagiair heeft gevraagd om een manier te ontwikkelen zodat er makkelijk nieuwe Satellite hardware getest kan worden.
 \begin{enumerate}
 	\item Hoe kan er een robuuste  communicatie gecreëerd worden tussen een hoofdsysteem en Satellite?
 	\item Op welke manier moet de software ontworpen worden zodat het makkelijk uitbreidbaar is voor nieuwe sensoren?
@@ -46,12 +46,12 @@ Voor dat er een applicatie ontwikkeld kon worden is er besproken met de stagebeg
 	\textbf{ID} & \textbf{Eis} & \textbf{Prioriteit} & \textbf{Bron} \\ \midrule
 	SM1			& Alle IO porten van de Satellite moeten getest worden 										& MUST		& Gesprek opdrachtgever \\
 	SM2			& Implementatie van de hoekmeting en versnellingsassen 										& MUST		& Gesprek opdrachtgever \\ 
-	SM3			& Spectrum analyse maken van de versnellingassen 											& MUST		& Gesprek opdrachtgever \\ 
+	SM3			& Spectrum analyse maken van de versnellingsassen 											& MUST		& Gesprek opdrachtgever \\ 
 	SM4			& Errors moeten goed afgevangen worden, de applicatie mag niet crashen of blijven hangen 	& MUST		& Gesprek opdrachtgever \\ 
-	SM5			& CAN implementatie, en correct protocol afhandeling										& MUST		& Gesprek opdrachtgever \\ \midrule
+	SM5			& CAN-implementatie, en correct protocol afhandeling										& MUST		& Gesprek opdrachtgever \\ \midrule
 	SM6			& Implementatie voor IO-Link sensoren 														& SHOULD	& Gesprek opdrachtgever \\
 	SM7			& Hoogte sensoren en antenne sensor inlezen 												& SHOULD	& Gesprek opdrachtgever \\  \midrule
-	SM8			& Standaard datastructuur voor paketten die worden opgestuurd								& COULD		& Gesprek opdrachtgever \\
+	SM8			& Standaard datastructuur voor packets die worden opgestuurd								& COULD		& Gesprek opdrachtgever \\
 	SM9			& Debug berichten worden opgestuurd via UDP/CAN 											& COULD		& Gesprek opdrachtgever \\  \midrule
 	SM10		& Ondersteuning van niet gekozen sensoren van Sensor Maritime 								& WON'T		& Gesprek opdrachtgever \\
 	SM11		& Ondersteuning voor andere communicatiemiddelen dan UDP, CAN 								& WON'T		& Gesprek opdrachtgever \\
