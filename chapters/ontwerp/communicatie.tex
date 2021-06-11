@@ -3,11 +3,11 @@ De Satellite heeft verschillende communicatiemiddelen, onder anderen ethernet en
 
 \noindent CAN is een groot onderdeel van de Sensor Maritime infrastructuur. De CAN communicatie wordt gebruik om te kunnen communiceren met het hoofdsysteem. Hiervoor wordt een master en slave configuratie gebruikt. Het hoofdsysteem is de master en de Satellite en andere eindsystemen zullen dan de slave zijn. De master bepaalt hoe een slave apparaat zich gaat gedragen. CAN staat voor controlled area network, en maakt gebruik van een broadcast systeem. Dit betekent dat alle eindsystemen alle berichten ontvangen, De master kan niet specifiek naar een slave data sturen \autocite{can}. \newline
 
-\noindent Sensor Maritime heeft een eigen protocol ontwikkeld wat gebouwd is op het CAN Bus. Dit zal deels aangepast moeten worden om de Satellite sensoren te kunnen ondersteunen. Het huidige protocol wat gebruikt wordt is in afbeelding \ref{fig:canprotocol} te zien. Het protocol is opgebouwd uit blokjes wat uit 1 of 2 bytes bestaat. In tabel \ref{tab:cansensorprotocol} wordt beschreven wat de taak is van het blokje.
+\noindent Sensor Maritime heeft een eigen protocol ontwikkeld wat gebouwd is op het CAN Bus. Dit zal deels aangepast moeten worden om de Satellite sensoren te kunnen ondersteunen. Het huidige protocol wat gebruikt wordt is in afbeelding \ref{fig:canprotocol} te zien. Het protocol is opgebouwd uit velden wat uit 1 of 2 bytes bestaat. In tabel \ref{tab:cansensorprotocol} wordt beschreven wat de taak is van elk veld.
 \begin{figure}[h!]
 	\label{fig:canprotocol}
-	\caption{Sensor Maritime CAN protocol}
 	\includegraphics[width=\linewidth]{voorstudie/communicatie/can.png}
+	\caption{Sensor Maritime CAN protocol}
 \end{figure}
 
 \begin{table}[h!]
@@ -29,7 +29,7 @@ De Satellite heeft verschillende communicatiemiddelen, onder anderen ethernet en
 \end{table}
 
 \subsection{Probleemstelling}
-Het huidige CAN BUS protocol ondersteunt de Satellite nog niet. De Satellite is een universeel systeem, waarmee verschillende sensoren verbonden aan de Satellite zijn. Het huidige protocol is zo opgebouwd dat er maar een payload opgestuurd kan worden. Dit betekent dat als de Satellite twee sensoren op wil sturen dat het in de payload gestopt moet worden, hiervoor moet een vast structuur bepaald worden zodat de ontvanger weet wat er ontvangen wordt. Om dit probleem op te lossen zal er een aanpassing gemaakt moeten worden aan de bestaande CAN-protocol payload van Sensor Maritime. Hiervoor zijn verschillende oplossingen voor bedacht dat hieronder worden beschreven. Uiteindelijk wordt een conclusie genomen welke oplossing gekozen is en waarom. Voor alle payload structuren die beschreven worden zal er gebruikt gemaakt worden van hetzelfde voorbeeld. Voor de voorbeelden worden er twee sensoren gebruikt die de Satellite zal ondersteunen, deze twee sensoren zijn de inductie sensor en de altimeter sensor. De sensoren zullen gerepresenteerd wordt als een getallen lijst wat van 0 begint. In het huidige systeem zijn er maar twee sensoren. Dit kan in de toekomst uitgebreid worden. Hieronder is een tabel \ref{tab:SensorRep} die een overzicht geeft.
+Het huidige CAN BUS protocol ondersteunt de Satellite nog niet. De Satellite is een universeel systeem, waarmee verschillende sensoren verbonden aan de Satellite zijn. Het huidige protocol is zo opgebouwd dat er maar een payload opgestuurd kan worden. Dit betekent dat als de Satellite twee sensoren op wil sturen dat het in de payload gestopt moet worden, hiervoor moet een vast structuur bepaald worden zodat de ontvanger weet wat er ontvangen wordt. Om dit probleem op te lossen zal er een aanpassing gemaakt moeten worden aan de bestaande CAN-protocol payload van Sensor Maritime. Hiervoor zijn verschillende oplossingen voor bedacht dat hieronder wordt beschreven. Uiteindelijk wordt een conclusie genomen welke oplossing gekozen is en waarom. Voor alle payload structuren die beschreven worden zal er gebruikt gemaakt worden van hetzelfde voorbeeld. Voor de voorbeelden worden er twee sensoren gebruikt die de Satellite zal ondersteunen, deze twee sensoren zijn de inductie sensor en de altimeter sensor. De sensoren zullen gerepresenteerd wordt als een getallen lijst wat van 0 begint. In het huidige systeem zijn er maar twee sensoren. Dit kan in de toekomst uitgebreid worden. Hieronder is een tabel \ref{tab:SensorRep} die een overzicht geeft.
 
 \begin{table}[h!]
 	\centering
@@ -49,8 +49,9 @@ De eerste structuur is ontworpen om zo simpel mogelijk te zijn. Het idee bij dit
 	\centering
 	\label{fig:Structure1}
 
-	\caption{Opbouw en voorbeeld van de payload structuur 1}
+
 	\includegraphics[width=0.5\linewidth]{voorstudie/communicatie/PayloadStructure1-01.jpg}
+	\caption{Opbouw en voorbeeld van de payload structuur 1}
 \end{figure}
 
 \newpage
@@ -59,16 +60,18 @@ Structuur 2 is opgezet om zoveel mogelijk te ondersteunen. Ten eerste ondersteun
 \begin{figure}[h!]
 	\centering
 	\label{fig:Structure2}
-	\caption{Opbouw en voorbeeld van de payload structuur 2}
+
 	\includegraphics[width=\linewidth]{voorstudie/communicatie/PayloadStructure2-01.jpg}
+	\caption{Opbouw en voorbeeld van de payload structuur 2}
 \end{figure}
 
 \subsection{Structuur 3}
 Dit is het laatste structuur die ontworpen is, dit is een combinatie van structuur 1 en structuur 2. Dit heeft drie onderdelen voor een sensor, ten eerste zal de sensor identificatie meegegeven worden. Daarna komt de waarde grootte in bytes, en uiteindelijk wordt de waarde gegeven. In afbeelding \ref{fig:Structure3} wordt het structuur en een voorbeeld weergeven.
 \begin{figure}[h!]
 	\label{fig:Structure3}
-	\caption{Opbouw en voorbeeld van de payload structuur 3}
+
 	\includegraphics[width=\linewidth]{voorstudie/communicatie/PayloadStructure3-01.jpg}
+	\caption{Opbouw en voorbeeld van de payload structuur 3}
 \end{figure}
 
 \newpage
@@ -77,8 +80,9 @@ Hieronder is een overzicht \ref{fig:comflow} te zien hoe de communicatie via CAN
 \begin{figure}[h!]
 	\centering
 	\label{fig:comflow}
-	\caption{Activity diagram van de communicatie}
+
 	\includegraphics[width=0.7\linewidth]{ontwerp/communicatie/DataFlow.jpg}
+	\caption{Activity diagram van de communicatie}
 \end{figure}
 
 \newpage

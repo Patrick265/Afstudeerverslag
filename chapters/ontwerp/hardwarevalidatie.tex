@@ -1,6 +1,4 @@
-Elke nieuw Satellite hardware wat wordt geleverd aan Sensor Maritime moeten gevalideerd moeten worden. Er zal als eerst beschreven worden welke porten er getest worden. De volgende type porten worden besproken. Ten eerste zal er gekeken worden naar DIP schakelaars, digitale output, analoog input, relay en uiteindelijk seriële communicatie. \newline
-
-\noindent De Satellite heeft verschillende porten zijn die gebruikt kan worden. Elke type port wordt beschreven in de volgende hoofdstukken. In deze hoofdstukken wordt beschreven wat de port moet doen en hoe dit getest gaat worden en uiteindelijk wat het verwachte resultaat is.
+Elke nieuw Satellite hardware wat wordt geleverd aan Sensor Maritime moeten gevalideerd moeten worden. Er zal als eerst beschreven worden welke porten er getest worden. De volgende type porten worden besproken. Ten eerste zal er gekeken worden naar DIP schakelaars, digitale output, analoog input, relay en uiteindelijk seriële communicatie.
 
 \subsection{DIP switch}
 Een DIP switch bestaat uit een aantal schakelaars die je aan of uit kan zitten \autocite{DIP}. Op de Satellite is er een DIP switch aan boord, die acht schakelaar is heeft. Zeven van de acht worden op het moment gebruikt voor verschillende doeleinden. De volgende tabel \ref{tab:hw_val_dip} geeft aan wat de acties zijn als je de schakelaar aan of uit zet. De eerste drie van de schakelaars worden gebruikt als configuratie voor andere porten die worden beschreven in hoofdstuk \ref{Analog Input Signaal}. De laatste vier schakelaars zetten een specifiek pin van de microcontroller hoog of laag.
@@ -72,12 +70,12 @@ De Satellite heeft verschillende porten voor seriële communicatie aanboord. De 
 
 \noindent RS-422 is weer een andere vorm van seriële communicatie en heeft kenmerken van RS-232. Het verschil tussen RS-232 en RS-422 is dat het voor de communicatie vier lijnen gebruikt (RX-, RX+, TX+, TX-). Met de vier communicatielijnen kan er full-duplex gecommuniceerd worden. Full-duplex communicatie betekent dat er twee of meer apparaten in beide richting kan communiceren (ontvangen en verzenden op hetzelfde moment) \autocite{FullDuplex}. RS-232 heeft half-duplex dit houdt in dat via RS-232 alleen handeling gedaan kan worden, bijvoorbeeld eerst ontvangen en dan pas verzenden. \autocite{RS422}. \newline
 
-\noindent In de volgende tabel \ref{tab:hw_val_serieel}wordt een overzicht gegeven van de seriële communicatie die verbonden zijn op de microcontroller. Voor de RS-422 communicatie is alleen twee communicatielijnen aangegeven, omdat dit zo verbonden is op de microcontroller. De Rx+, RX- en TX+, TX- lijnen worden samengevoegd door een chip en dan verbonden naar de microcontroller.
+\noindent In de volgende tabel \ref{tab:hw_val_serieel} wordt een overzicht gegeven van de seriële communicatie die verbonden zijn op de microcontroller. Voor de RS-422 communicatie is alleen twee communicatielijnen aangegeven, omdat dit zo verbonden is op de microcontroller. De Rx+, RX- en TX+, TX- lijnen worden samengevoegd door een chip en dan verbonden naar de microcontroller.
 \begin{table}[h!]
 	\caption{Seriële communicatie porten die gevalideerd moeten worden}
 	\begin{tabular}{lllp{12cm}}
 	\toprule
-	\textbf{IO} & \textbf{Pin} & \textbf{Input/Output} & \textbf{Beschrijving}	\\ \toprule
+\textbf{IO} & \textbf{Pin} & \textbf{Input/Output} & \textbf{Beschrijving}	\\ \toprule
 	UART RX		& 0    	& Input		& Seriële communicatie ontvangst lijn.			\\
 	UART TX		& 1    	& Output	& Seriële communicatie versturen lijn.			\\
 	RS-232 RX	& 7    	& Input		& Seriële communicatie ontvangst lijn.			\\

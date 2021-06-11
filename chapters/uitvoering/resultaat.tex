@@ -2,94 +2,69 @@
 In dit hoofdstuk zullen alle resultaten van de afstudeeropdracht beschreven worden. De resultaten zullen opgesplitst zijn in twee onderdelen. Ten eerste zal er teruggekoppeld worden op de doelstellingen en eisen. Ten tweede zal er gekeken worden of de Satellite voldoet aan het opgezette hardware testplan.
 
 \section{Doelstellingen}
-In het begin van het project zijn er drie doelstellingen gedefineerd, de doelstellingen hebben als taak om een overzicht te krijgen wat er precies bereikt zal moeten worden. De volgende doelstellingen zijn hieronder gedefineerd.
+In het begin van het project zijn er drie doelstellingen gedefineerd, de doelstellingen hebben als taak om een overzicht te krijgen wat er precies bereikt zal moeten worden. De volgende doelstellingen zijn hieronder gedefineerd. De doelstellingen kunnen opgesplitst worden in twee onderdelen, de eerste onderdeel is hardwarevalidatie. De tweede onderdeel focust zich op de het onderdeel om een generieke applicatie en robuuste communicatie te ontwikkelen. In de volgende subhoofdstukken zal er gekeken worden per onderdeel wat de resultaat van de doelstelling is.
 \begin{enumerate}
 	\item De Satellite IO porten zijn volledig getest, en kunnen communiceren met sensoren.
 	\item De Satellite heeft een robuuste communicatie over CAN en UDP.
 	\item Generiek en modulair opgebouwd software, waardoor het in de toekomst makkelijk uitgebreid kan worden.
 \end{enumerate}
 
+\subsection{Hardware validatie}
+Vanuit Sensor Maritime is er gevraagd om een manier te ontwikkelen om snel nieuwe hardware van de Satellite te kunnen testen. Hiervoor is een testplan ontwikkeld dat alle porten getest worden. In dit testplan is beschreven welke porten getest wordt, wat de verwachting is en hoe het is aangesloten aan de microcontroller. Het testplan is opgesplitst in type porten. De Satellite heeft vijf verschillende porten, de porten zijn een DIP switch, digitaal output signaal, analoog input signaal, relay, en seriële porten. Voor elke type ports is er een aparte manier van testen bedacht. \newline
 
-\section{Hardware validatie testplan}
-In het begin is er een testplan ontwikkeld dat de IO porten van de Satellite test. Met deze testplan kan nieuwe hardware snel en makkelijk getest worden. Het resultaat is dat testplan ingevuld is voor het huidige hardware. In tabel is het verwachte resultaat beschreven en het uiteindelijk resultaat.
+\noindent De hardwarevalidatie heeft ook een implementatie nodig, ten eerste moet er software geschreven voor de Satellite, en voor desktop. De Satellite voert de handelingen uit zoals die beschreven zijn in het testplan, en de desktop applicatie visualiseert. Het is nu zo opgebouwd dat de Satellite de resultaten van de testplan opstuurt naar de applicatie elke 250 milliseconden. \newline
 
-\subsection{DIP Switch}
-Hieronder is het resultaat \ref{tab:resultaatdip} van het testplan dat gaat over de DIP switches. 
-\begin{table}[h!]
-	\centering
-	\caption{Resultaat testplan van de DIP switches}
-	\begin{tabular}{lp{8.5cm}lp{4cm}}
-	\toprule
-	\textbf{Naam} 	& \textbf{Verwachte resultaat} & \textbf{Geslaagd} & \textbf{Opmerking}\\ \toprule
-	PU1				& Als het aan gezet wordt de range van de analoge input 1 verhoogt naar 24 volt, dit verhoogt de waarde wat de microcontroller leest, de waarde wordt laten zien op een GUI. &\\
-	-				& Wordt niet getest. & \\ 
-	PU2				& Als het aan gezet wordt de range van de analoge input 2 verhoogt naar 24 volt, dit verhoogt de waarde wat de microcontroller leest, de waarde wordt laten zien op een GUI. &\\
-	PU3				& Als het aan gezet wordt de range van de analoge input 3 verhoogt  naar 24 volt, dit verhoogt de waarde wat de microcontroller leest, de waarde wordt laten zien op een GUI. & \\
-	ADD0 			& Zet 3.3V op de pin van de microcontroller, als de microcontroller 3.3V detecteert zet het led 0 aan. & \\
-	ADD1 			& Zet 3.3V op de pin van de microcontroller, als de microcontroller 3.3V detecteert zet het led 1 aan. & \\
-	ADD2 			& Zet 3.3V op de pin van de microcontroller, als de microcontroller 3.3V detecteert zet het led 2 aan. & \\
-	ADD3 			& Zet 3.3V op de pin van de microcontroller, als de microcontroller 3.3V detecteert zet het led 3 aan. & \\ \bottomrule
-	\end{tabular}
-	\label{tab:resultaatdip}
-\end{table}
+\noindent Met de combinatie van alle onderdelen van de hardwarevalidatie kan Sensor Maritime in minuten bekijken of de hardware problemen heeft. De testplan is ook uitgevoerd op de huidige Satellite, die de stagiair heeft gebruikt. De huidige Satellite heeft het testplan succesvol afgerond. In de toekomst kan Sensor Maritime het testplan gebruikt om nieuw hardware volledig te testen. \newline
 
-\newpage
-\subsection{Digital output signaal}
-Hieronder is het resultaat \ref{tab:resultaatdio} van het testplan dat gaat over de digitale output signalen.
-\begin{table}[h!]
-	\centering
-	\caption{Resultaat testplan van de digital output signalen}
-	\begin{tabular}{lp{8.5cm}lp{4cm}}
-	\toprule
-	\textbf{Naam} 	& \textbf{Verwachte resultaat} & \textbf{Geslaagd} & \textbf{Opmerking} \\ \toprule
-	D1	&	Als op de pin 24V staat gaat het lampje aan, en bij 0V uit gaat het uit. Dit gebeurt om 1 seconden. && \\			
-	D2	&	Als op de pin 24V staat gaat het lampje aan, en bij 0V uit gaat het uit. Dit gebeurt om 1 seconden. && \\			
-	D3	&	Als op de pin 24V staat gaat het lampje aan, en bij 0V uit gaat het uit. Dit gebeurt om 1 seconden. && \\			
-	D4	&	Als op de pin 24V staat gaat het lampje aan, en bij 0V uit gaat het uit. Dit gebeurt om 1 seconden. && \\ \bottomrule
-	\end{tabular}
-	\label{tab:resultaatdio}
-\end{table}
+\noindent Hiermee kan de conclusie getrokken worden dat de volgende doelstelling \textbf{De Satellite IO porten zijn volledig getest, en kunnen communiceren met sensoren} voltooid is.
 
-\subsection{Analoog input signaal}
-Hieronder is het resultaat \ref{tab:resultaatai} van het testplan dat gaat over de analoog input signalen.
-\begin{table}[h!]
-	\caption{Resultaat testplan van de analoog input signalen}
-	\begin{tabular}{lp{8.5cm}lp{4cm}}
-	\toprule
-	\textbf{Naam} 	& \textbf{Verwachte resultaat} & \textbf{Geslaagd} & \textbf{Opmerking}\\ \toprule
-	AI1			& Als de schakelaar PU1 van de schakelaar aangezet wordt dan zal de data bereik op de graphical user interface aangepast worden naar 0 tot 4096. Als het dip schakelaar uit staat dan zal de bereik maar van 0 tot 1100 gaan.\\
-	AI2			& Als de schakelaar PU1 van de schakelaar aangezet wordt dan zal de data bereik op de graphical user interface aangepast worden naar 0 tot 4096. Als het dip schakelaar uit staat dan zal de bereik maar van 0 tot 1100 gaan.\\
-	AI3			& Als de schakelaar PU1 van de schakelaar aangezet wordt dan zal de data bereik op de graphical user interface aangepast worden naar 0 tot 4096. Als het dip schakelaar uit staat dan zal de bereik maar van 0 tot 1100 gaan.\\  \bottomrule
-	\end{tabular}
-	\label{tab:resultaatai}
-\end{table}
+\subsection{Applicatie}
+Het grootste doelstelling van de afstudeeropdracht is om een generieke applicatie te ontwikkelen. Hiervoor is een applicatie ontworpen en geschreven aan de eisen die Sensor Maritime heeft opgesteld. De vraag van uit Sensor Maritime was om een applicatie te ontwikkelen waar kapiteins plug and play sensoren in de Satellite kunnen stoppen. Hiervoor zijn verschillende doelstellingen opgesteld die als volgt gaan:
+\begin{enumerate}
+	\item De Satellite heeft een robuuste communicatie over CAN en UDP.
+	\item Generiek en modulair opgebouwd software, waardoor het in de toekomst makkelijk uitgebreid kan worden.
+\end{enumerate}
+
+\noindent Beide doelstelling beantwoorden de vraag, hoe kan er een generieke applicatie ontwerp en robuuste communicatie bedacht worden. Het uiteindelijke resultaat hiervan is een applicatie dat generiek is opgebouwd dat het structuur volgt zoals het ontworpen is. Dit bestaat uit een aantal grote onderdelen. Ten eerste is er een applicatie logica ontworpen wat aan de hand van de states \ref{fig:appstates} is toegevoegd. Voor de tijdsinvariant taken zijn interrupts gebruikt, een interrupt is responsie van de microcontroller bij een event. Een event kan bijvoorbeeld zijn dat een pin hoog gezet wordt. Elke interrupt leest de data uit zodra deze interrupt aangeroepen wordt. Bij tijdsvariant systeem is er gebruikt gemaakt van een timer. Dit houdt de timing bij op een hardware niveau, en door de ontwikkelaar gespecificeerde functie wordt door de timer aangeroepen. \newline
+
+\noindent Daarnaast zijn verschillende sensoren geïmplementeerd die Sensor Maritime uitgekozen hebben. Deze sensoren waren imu, altimeter, GNSS en inductor. Als deze sensoren aan de Satellite gekoppeld zijn en de preprocessor de sensor definitie heeft, dan zal de sensor uitgelezen worden. Hier wordt een packet van gemaakt en dit wordt uiteindelijk om de seconden opgestuurd. Wanneer sensor data opgehaald wordt er een groen ledje getoond, gevolgd met een blauw ledje dat er sensor data opgestuurd is. \newline
+
+\noindent Vervolgens is de communicatie toegevoegd. De Satellite heeft twee vormen van communicatie, UDP en CAN-Bus. UDP op het moment stuurt op het moment voor elke sensor elke second sensor data op. De UDP communicatie stuurt op het moment alleen data op, en ontvangt niet. CAN-bus is veel uitgebreider op het moment, het moet ten eerste ontvangen en opsturen. CAN-Bus werkt met een ontvang en antwoord systeem. Het kan verschillende type berichten ontvangen die verschillende dingen kan vragen aan de Satellite. Dit betekent dat de CAN-communicatie goed moet kijken wat het ontvangt en hoe het moet antwoorden. Beide werken robuust en kunnen communiceren met een hoofdsysteem. Bij eventuele fouten of waarschuwingen wordt de rode of gele LED getoond. \newline
+
+\noindent De generiek applicatie, sensor abstractie/drivers en communicatie voldoen aan de doelstellingen om een robuust en generiek applicatie te ontwikkelen.
 
 \newpage
-\subsection{Relay}
-Hieronder is het resultaat \ref{tab:resultaatrelay}  van het testplan dat gaat over de relay.
+\section{Eisen}
+In dit onderdeel zal er gekeken worden in hoever de huidige applicatie voldoet aan de eisen die opgesteld zijn in de MosCoW analyse \ref{tab:eisen} bij de probleemanalyse. Er zal als eerst gekeken worden naar de must have eisen in het volgende tabel \ref{tab:must}. Alle must have eisen zijn geïmplementeerd behalve \textit{SM3} (\textit{CONCEPT NOTITIE: HIER WORDT NOG AANGEWERKT, ER WORDT GEKEKEN HOEVER DE STAGIAIR KOMT MET DIT.}). Dit is nog niet uitgevoerd omdat halverwege het project een could en should eis prioriteit kregen vanuit de klant. SM1 is uitgevoerd met de hulp van de opgezet testplan voor de hardwarevalidatie, de resultaat van de eis is dat er een testplan, software voor de Satellite en een desktopapplicatie is ontwikkeld. SM2 is een sensor implementatie waarbij de IMU uitgelezen moest worden. Dit is de eerste sensor die uitgewerkt is. De IMU wordt op dit moment uitgelezen om de 100 milliseconden en om de 1 seconden opgestuurd naar een hoofdsysteem. De IMU geeft de gemiddelde, minimale en maximale van versnellingsas, daarnaast wordt ook nog een hoekmeting gedaan. SM4 en SM5 zijn aan elkaar gekoppeld. Hiervoor zijn verschillende methodes toegepast, bijvoorbeeld foutafhandeling en ook aanpassingen gemaakt aan een originele structuur om de robuustheid te verbeteren. 
+
 \begin{table}[h!]
-	\caption{Resultaat testplan van de relay}
-	\begin{tabular}{lp{8.5cm}lp{4cm}}
+	\centering
+	\caption{MoSCoW Analyse resultaat must haves}
+	\label{tab:must}
+	\begin{tabular}{lp{15cm}}
 	\toprule
-	\textbf{Naam} 	& \textbf{Verwachte resultaat} & \textbf{Geslaagd} & \textbf{Opmerking} \\ \toprule
-	Relay			& De microcontroller zet de pin van de relay voor vijf seconden hoog, als dit gebeurt hoor je een klik te horen. Na vijf seconden zal deze pin weer laag gezet worden, dit moet ook gehoord kunnen worden.\\  \bottomrule
+	\textbf{ID} & \textbf{Eis} \\ \midrule
+	SM1			& Alle IO porten van de Satellite moeten getest worden 										\\
+	SM2			& Implementatie van de hoekmeting en versnellingsassen 										\\ 
+	SM3			& Spectrum analyse maken van de versnellingsassen 											\\ 
+	SM4			& Errors moeten goed afgevangen worden, de applicatie mag niet crashen of blijven hangen 	\\ 
+	SM5			& CAN-implementatie, en correct protocol afhandeling										\\ \bottomrule
 	\end{tabular}
-	\label{tab:resultaatrelay}
 \end{table}
 
+\noindent Buiten de must haves zijn de volgende eisen geïmplementeerd \ref{tab:shouldetc} in de applicatie . Deze twee eisen hebben uiteindelijk voorrang gekregen over SM3 aangezien de klant dit vroeg. De hoogte sensor en antenne sensor worden nu uitgelezen en om de seconden opgestuurd via UDP. Voor de hoogte sensor wordt de gemiddelde berekent van 1 seconden en dit wordt dan opgestuurd. De antenne sensor meet metaaldetectie en stuurt dit op, dit wordt op true/false manier getoond. De waarde is true als de waarde hoger is dan 4080, en de waarde is false als de waarde rond de 0 is. Daarnaast is er ook een standaard datastructuur ontwikkeld voor de CAN-Bus. Hiervoor is een ontwerp gemaakt en dit is geïmplementeerd. 
 
-\subsection{Serieële communicatie}
-Hieronder is het resultaat \ref{tab:resultaatserieel} van het testplan dat gaat over de serieële communicatie.
 \begin{table}[h!]
-	\caption{Resultaat testplan van de serieële communicatie}
-	\begin{tabular}{lp{8.5cm}lp{4cm}}
+
+\centering
+	\caption{MoSCoW Analyse resultaat overig}
+	\label{tab:shouldetc}
+	\begin{tabular}{lp{13cm}l}
 	\toprule
-	\textbf{Naam} 	& \textbf{Verwachte resultaat} & \textbf{Geslaagd} & \textbf{Opmerking} \\ \toprule
-	UART & Gebruiker stuurt de een bericht op en de Satellite antwoord hierop met het bericht wat was ontvangen is.&& \\
-	UART 2 & Gebruiker stuurt de een bericht op en de Satellite antwoord hierop met het bericht wat was ontvangen is.&& \\
-	RS232 & Gebruiker stuurt de een bericht op en de Satellite antwoord hierop met het bericht wat was ontvangen is.&&\\
-	RS422 & Gebruiker stuurt de een bericht op en de Satellite antwoord hierop met het bericht wat was ontvangen is.&&\\ \bottomrule
+	\textbf{ID} & \textbf{Eis} & \textbf{Prioriteit}\\ \midrule
+	SM7			& Hoogte sensoren en antenne sensor inlezen 				 & SHOULD \\  \midrule
+	SM8			& Standaard datastructuur voor packets die worden opgestuurd & COULD	 \\\bottomrule
 	\end{tabular}
-	\label{tab:resultaatserieel}
 \end{table}
+
 

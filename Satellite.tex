@@ -9,7 +9,7 @@
 \usepackage{afterpage}
 \usepackage{titlesec}
 \usepackage{wrapfig}
-
+%\usepackage[document]{ragged2e}
 
 % TABLES
 \usepackage{booktabs}
@@ -33,11 +33,11 @@
 \graphicspath{{res/img/}}
 
 \usepackage[backend=biber,style=apa,autocite=inline]{biblatex}
-% \addcontentsline{toc}{chapter}{Bibliography}
 \DeclareLanguageMapping{dutch}{dutch-apa}
 \addbibresource{Satellite.bib}
 
 \setcounter{secnumdepth}{3}
+
 
 %%% DUTCH
 
@@ -52,11 +52,13 @@
 
 \begin{document}
 
-	
+
 	\include{chapters/misc/voorpagina.tex}
 	\include{chapters/misc/colofon.tex}
 	\include{chapters/misc/voorwoord.tex}
+
 	\include{chapters/misc/samenvatting.tex}
+
 	\tableofcontents
 	\listoffigures
 	\begingroup
