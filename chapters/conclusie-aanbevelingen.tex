@@ -8,11 +8,20 @@ In dit eindverslag is een onderzoek gedaan naar het volgende onderzoeksvraag: \t
 
 \noindent Het laatste onderdeel, is een doelstelling wat Sensor Maritime graag wilt zien. Deze doelstelling is manier ontwikkelen om nieuw Satellite hardware te kunnen testen. Als Sensor Maritime nieuw Satellite hardware binnenkrijgt moet het getest worden of alle porten op de Satellite werken zoals het ontworpen is. Hiervoor is een testplan en twee applicaties ontwikkeld. Er is als eerst een testplan opgezet dat beschrijft hoe het testen van de hardware werkt. Vervolgens is een applicatie geschreven voor de Satellite. Deze applicatie kan gedraaid worden met een preprocessor definitie. Uiteindelijk is er nog een desktopapplicatie ontwikkeld waarmee de resultaten van het testplan gezien kunnen worden. \newline
 
-\noindent  Uit dit onderzoek is dus gebleken als Satellite gebruikt met verschillende ontwerp technieken een modulair softwaresysteem ontwikkeld worden voor de hardware. In het huidige ontwerp is er ruimte voor nieuwe toevoegingen met zowel sensoren, transformatica en communicatie. Vervolgens kan er makkelijk gewisseld worden dus test applicatie en de Satellite applicatie. Dit helpt Sensor Maritime om continu nieuwe toevoegingen te maken aan de Satellite, zonder dat Sensor Maritime grote onderdelen van de applicatie structuur moet aanpassen.
+\noindent  Uit dit onderzoek is gebleken dat aan de hand van applicatieontwerp waar bij lagen en preprocessor gebruikt word, dat er een modulair softwaresysteem ontwikkeld kan worden voor de hardware. Zodat in de toekomst de Satellite er ruimte is voor nieuwe toevoegingen met zowel sensoren, datatransformatie's en communicatie. Vervolgens kan er makkelijk gewisseld worden dus test applicatie en de Satellite applicatie. Dit helpt Sensor Maritime om continu nieuwe toevoegingen te maken aan de Satellite, zonder dat Sensor Maritime grote onderdelen van de applicatie structuur moet aanpassen.
 
 
 
 
 \newpage
 \section{Aanbevelingen}
-Tijdens de afstudeerstage was het doel om een modulair softwaresysteem te ontwikkelen voor het bestaand Satellite hardware. Hiervoor is een basis opgezet Tijdens het onderzoeken en implementeren van dit modulair softwaresysteem zijn niet alle functionaliteiten geimplementeerd
+Tijdens de afstudeerstage was het doel om een modulair softwaresysteem te ontwikkelen voor het bestaand Satellite hardware. Hiervoor is een basis opgezet wat de meeste eisen bevat, wat makkelijk in de toekomst uitgebreid kan worden. Er wordt geadviseerd om dit structuur aan te houden bij toekomstige aanpassingen. Door dit te doen blijft de Satellite modulair en makkelijke uitbreidbaar en zal in de toekomst tijd besparen. \newline 
+
+\noindent Buiten het structuur zijn er nog een aantal uitbreidingen wat het product completer maakt. Ten eerste, is er nog geen ondersteuning voor IO link sensoren die beschrijven zijn in \ref{tab:eisen} aangezien hier te weinig tijd voor was. Hiervoor zal nog drivers en abstractie laag geschreven voor moeten worden. Hiervoor wordt ook aangeraden dat er aan de structuur gehouden wordt die beschreven is in het ontwerp. \newline
+
+\noindent Mijn volgende aanbeveling is om nieuw manier van testen te ontwikkelen van de Satellite applicatie. Dit kan gedaan worden door bijvoorbeeld gebruik maken van unit testing, integratie testen. Dit zorgt ervoor dat makkelijk onderdelen van de applicatie getest kunnen worden. \newline
+
+\noindent Mijn laatste aanbeveling om de Satellite applicatie te verbeteren is om een generiek en modulair systeem te verzinnen om data te versturen via UDP. Dit is nog niet geïmplementeerd zodat het modulair is dit betekent dat het versturen van data handmatig bepaald moet worden. Als voorbeeld zou de UDP packet vergelijkbaar opgebouwd kunnen worden als CAN protocol. Dit verlaagt de handeling en helpt met de robuustheid. \newline
+
+
+\noindent Om de aanbevelingen te concluderen, zullen er aantal uitbreidingen gemaakt moeten worden op de volgende onderdelen communicatie, sensor en testen. Met deze toevoegingen kan de applicatie in de toekomst onderhoudbaar, uitbreidbaar en robuust blijven.
