@@ -1,5 +1,5 @@
 \chapter{Testen}
-In dit hoofdstuk wordt er gekeken naar de testen die gedaan is tijdens het traject, ten eerste wordt er gekeken naar de hardware validatie testplan, maar ook het testplan voor de applicatie. Testen in softwareontwikkeling is een belangrijk onderdeel, hiermee kan er goed gekeken hoe robuust de applicatie is geworden.
+In dit hoofdstuk wordt er gekeken naar de testen die gedaan zijn tijdens het traject, ten eerste wordt er gekeken naar het testplan van de hardware validatie, maar ook het testplan voor de applicatie. Testen in softwareontwikkeling is een belangrijk onderdeel, hiermee kan er goed gekeken hoe robuust de applicatie is geworden.
 
 \section{Testplan hardware validatie} \label{sec:hwtestplan}
 Dit is het testplan die bedacht is om de alle porten van de Satellite te testen, dit is testplan die wordt gebruikt bij Satellite hardware. Hiermee kan Sensor Maritime heel snel de hardware verifiëren.
@@ -53,7 +53,7 @@ Aan de hand wat is beschreven zal er gebruik gemaakt worden van de DIP schakelaa
 \end{table}
 
 \subsection{Relay}
-De relay geeft bij het sluiten en het openen van de mechanische connectie een luid geluid wat op normale afstand van het apparaat te horen moet zijn. Het testplan van de relay wordt dan ook op geluid gedaan. De relay zal dan voor vijf seconden aan gaan, en vervolgens weer voor vijf seconden uitgaan. Hieronder is een overzicht van de relay testplan \ref{tab:hw_val_relay_testplan}.
+De relay geeft bij het sluiten en het openen van de mechanische connectie een luid geluid die op normale afstand van het apparaat te horen moet zijn. Het testplan van de relay wordt dan ook op geluid gedaan. De relay zal dan voor vijf seconden aan gaan, en vervolgens weer voor vijf seconden uitgaan. Hieronder is een overzicht van de relay testplan \ref{tab:hw_val_relay_testplan}.
 
 \begin{table}[h!]
 	\caption{Testplan voor de relay}
@@ -67,7 +67,7 @@ De relay geeft bij het sluiten en het openen van de mechanische connectie een lu
 
 
 \subsection{Serieel communicatie}
-Om de serieel communicatie te testen wordt er gebruik gemaakt van GUI. Deze GUI vraagt de om gebruikers input hierin kan de gebruiker een tekst schrijven en dit wordt opgestuurd. De tekst heeft een limiet van maximaal 32 karakters. Er zal hier automatisch een newline karakter toegevoegd worden zodat de microcontroller weet dat dit het einde van het gebruikers bericht is. Het bericht wordt opgestuurd naar de microcontroller en zal de data verwerken. De microcontroller zal dan een antwoord geven als volgt, ten eerste zal de microcontroller vertellen welke variant van communicatie is gebruikt en daarna zal het toevoegen wat de microcontroller ontvangen heeft van de gebruiker. Hieronder is een overzicht \ref{fig:testplanserieel} van hoe het testplan zal werken.
+Om de seriele communicatie te testen wordt er gebruik gemaakt van GUI. Deze GUI vraagt de om gebruikers input hierin kan de gebruiker een tekst schrijven en dit wordt opgestuurd. De tekst heeft een limiet van maximaal 32 karakters. Er zal hier automatisch een newline karakter toegevoegd worden zodat de microcontroller weet dat dit het einde van het gebruikers bericht is. Het bericht wordt opgestuurd naar de microcontroller en zal de data verwerken. De microcontroller zal dan een antwoord geven als volgt, ten eerste zal de microcontroller vertellen welke variant van communicatie is gebruikt en daarna zal het toevoegen wat de microcontroller ontvangen heeft van de gebruiker. Hieronder is een overzicht \ref{fig:testplanserieel} van hoe het testplan zal werken.
 
 \begin{figure}[h!]
 	\centering
@@ -81,7 +81,7 @@ Om de serieel communicatie te testen wordt er gebruik gemaakt van GUI. Deze GUI 
 
 \subsection{GUI}
 \section{Applicatie}
-De applicatie moet voldoen aan de eisen en doelstelling die bepaald zijn in hoofdstuk \ref{ch:aanpak}, hiervoor is gebruikt gemaakt van twee manieren van testen. Ten eerste wordt er gebruikt gemaakt van een GUI die data ontvangt van de Satellite en toont op GUI in vorm van grafieken en tabellen. Er is hiervoor een nieuw project begonnen die stagiair zelf ontwikkeld heeft. De tweede manier van testen is gebruikt maken van de onboard LED's die de Satellite standaard beschikt. De Satellite heeft in totaal vier LED's die softwareontwikkelaar aan of uit kan zetten. 
+De applicatie moet voldoen aan de eisen en doelstelling die bepaald zijn in hoofdstuk \ref{ch:aanpak}, hiervoor is gebruikt gemaakt van twee manieren van testen. Ten eerste wordt er gebruikt gemaakt van een GUI die data ontvangt van de Satellite en toont op GUI in vorm van grafieken en tabellen. Er is hiervoor een nieuw project begonnen die afstudeerder zelf ontwikkeld heeft. De tweede manier van testen is gebruikt maken van de onboard LED's die de Satellite standaard beschikt. De Satellite heeft in totaal vier LED's die softwareontwikkelaar aan of uit kan zetten. 
 
 
 
@@ -97,7 +97,7 @@ Om de applicatie te testen is er gebruik gemaakt van een desktopapplicatie die a
 
 \newpage
 \subsection{LED's}
-Er zitten standaard vier LED’s op het boordje, en alle vier hebben een ander kleur. De LED’s zijn puur voor de softwareontwikkelaar en zal door de kapitein van een binnenvaartschip niet gezien worden. Hieronder is gedefinieerd wanneer de LED’s gebruikt worden en waarvoor ze gebruikt worden \ref{tab:leds}. Er is voor errors en warnings de standaardkleuren rood en geel gebruikt. Daarnaast wordt ervoor het data ophalen een groen LED laten zien als dit succesvol is gedaan, bij fouten van het ophalen van de sensor data wordt een geel of rood LED getoond. Dit is gebaseerd hoe fout het is gegaan. Bij het versturen van sensor data of bij het ontvangen van data wordt er een blauw licht vertoont.
+Er zitten standaard vier LED’s op het boordje, en ze hebben alle vier een andere kleur. De LED’s zijn puur voor de softwareontwikkelaar en zal door de kapitein van een binnenvaartschip niet gezien worden. Hieronder is gedefinieerd wanneer de LED’s gebruikt worden en waarvoor ze gebruikt worden \ref{tab:leds}. Er is voor errors en warnings de standaardkleuren rood en geel gebruikt. Daarnaast wordt ervoor het data ophalen een groen LED laten zien als dit succesvol is gedaan, bij fouten van het ophalen van de sensor data wordt een geel of rood LED getoond. Dit is gebaseerd hoe fout het is gegaan. Bij het versturen van sensor data of bij het ontvangen van data wordt er een blauw licht vertoont.
 \begin{table}[h!]
 	\caption{Satellite onboard LED beschrijving}
 	\begin{tabular}{lp{14.5cm}}
