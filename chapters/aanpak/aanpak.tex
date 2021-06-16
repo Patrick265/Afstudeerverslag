@@ -1,23 +1,23 @@
 \chapter{Aanpak} \label{ch:aanpak}
 
 \section{Projectactiviteiten}
-De afstudeerderstage is opgesplitst in verschillende fases, in dit hoofdstuk worden er voor elke fase de activiteiten geformuleerd. In de stage zijn er drie fases gespecificeerd. In de eerste fase zal gekeken worden naar het onderzoek, de implementatie, en uiteindelijk wordt het project afgerond. In de onderzoek fases wordt de criteria concreet gemaakt en wordt er gekeken naar de beste mogelijke implementatie van het gevraagde product. Na het onderzoek komt de ontwerp en implementatie fase, hier wordt het uiteindelijke product geïmplementeerd aan de hand van de onderzoek en criteria die in de vorige fase zijn opgesteld. Als de implementatie voltooid is komt de laatste fase, de afronding. In de afronding wordt er gekeken naar het uiteindelijke product aan de hand van de criteria.
+De afstudeerderstage is opgesplitst in verschillende fases, in dit hoofdstuk worden er voor elke fase de activiteiten geformuleerd. Tijdens het afstudeerstage zijn er drie fases gespecificeerd, deze drie fases zijn onderzoek, implementatie en afronding. In de onderzoek fases wordt de criteria concreet gemaakt en wordt er gekeken naar de beste mogelijke implementatie van het gevraagde product. Na het onderzoek komt de implementatie fase, hier wordt het uiteindelijke product geïmplementeerd aan de hand van de onderzoek en criteria die in de vorige fase zijn opgesteld. Als de implementatie voltooid is komt de laatste fase, de afronding. In de afronding wordt er gekeken naar het uiteindelijke product aan de hand van de criteria.
 
 \subsection{Onderzoek}
 Tijdens de onderzoeksfase zal er een aantal stappen gemaakt worden om de het project af te bakenen en er wordt gekeken naar de implementatie van het project. Tijdens de stage komen de volgende activiteiten aanbod:
 \begin{enumerate}
-	\item Een onderzoek doen naar het ontwikkelen van een generiek applicatie, waarbij verschillende sensoren ondersteund kunnen worden.
-	\item Een onderzoek doen naar payload ontwerp van de CAN-bus communicatie.
-	\item Een onderzoek doen naar hardware validatie.
+	\item Een onderzoek doen naar het ontwikkelen van een generiek applicatie, waarbij verschillende sensoren ondersteund kunnen worden. Dit bepaalt hoe de uiteindelijke applicatie zich zal gaan gedragen, er zal hier gefocust worden op sensor abstractie.
+	\item Een onderzoek doen naar payload ontwerp van de CAN-bus communicatie. De huidige CAN-Protocol voldoet niet aan de eisen om makkelijk data op te sturen na één hoofdsysteem.
+	\item Een onderzoek doen naar hardware validatie. Alle nieuwe Satellite hardware zal getest moeten worden op de IO porten. Hier zal een testplan gemaakt voor moeten worden.
 	\item Plan van aanpak
 \end{enumerate}
 
 \subsection{Implementatie}
 In de implementatie fase worden de resultaten van de onderzoeksfase verwerkt in de applicatie. 
 \begin{enumerate}
-	\item Implementatie van het generieke software ontwerp
-	\item Implementatie van de hardware validatie aan de hand van het testplan.
-	\item Implementatie van het payload structuur van de CAN-bus communicatie.
+	\item Implementatie van het generieke software ontwerp. De implementatie zal via het ontwerp gedaan worden wat gespecificeerd is in het onderzoek.
+	\item Implementatie van de hardware validatie aan de hand van het testplan. De implementatie zal via het ontwerp gedaan worden wat gespecificeerd is in het onderzoek.
+	\item Implementatie van het payload structuur van de CAN-bus communicatie. De implementatie zal via het ontwerp gedaan worden wat gespecificeerd is in het onderzoek.
 \end{enumerate}
 
 \newpage
@@ -44,22 +44,21 @@ In tabel \ref{tab:milestones} staan de milestones. Deze milestones zijn niet gel
 		2 & Payload structuur ontwerp voor het CAN Bus protocol      \\
 		3 & Implementatie applicatie aan de hand van het software ontwerp					\\
 		4 & Hardware validatie geïmplementeerd		\\
-		5 & Afronding ongeteste product \\
-		6 & Afronding product              \\ \bottomrule
+		5 & Afronding product  \\ \bottomrule
 		\end{tabular}
 
 	\label{tab:milestones}
 \end{table}
 
 \subsection{Documenten}
-In tabel \ref{tab:documents} staan  alle documenten die door de afstudeerder zijn gemaakt, en welke documenten aan de Sensor Maritime geleverd wordt.
+In tabel \ref{tab:documents} staan  alle documenten die door de afstudeerder zijn gemaakt, en welke documenten aan Sensor Maritime geleverd wordt.
 \begin{table}[h!] 
 	\caption{Tussenresultaten van documenten}
 	\begin{tabular}{p{1cm}p{14cm}}
 	\toprule
 	\textbf{\#} & \textbf{Documentnaam}   \\ \midrule
 	1 & Definitief Plan van Aanpak afstuderen. \\
-	2 & Onderzoeksdocument naar een generieke methode om sensoren te ondersteunen. \\
+	2 & Onderzoek document naar een generieke methode om sensoren te ondersteunen. \\
 	3 & Document voor het payload structuur ontwerp voor het bestaande CAN Bus protocol \\
 	4 & Testplan hardware validatie \\
 	5 & Eindverslag afstuderen \\ \bottomrule
@@ -73,9 +72,9 @@ In tabel \ref{tab:documents} staan  alle documenten die door de afstudeerder zij
 In dit hoofdstuk wordt er gekeken hoe de kwaliteit gewaarborgd wordt tijdens het project. Kwaliteit wordt onderverdeeld in verschillende hoofdstukken: het product en documentatie. Er wordt gekeken hoe de kwaliteit van het product het best gewaarborgd kan worden. Daarnaast bevordert dit een succesvolle afronding van de stage.
 
 \subsection{Product}
-De kwaliteit wordt bepaald door de klant en bedrijfsbegeleider. De afstudeerder is verantwoordelijk voor het product en zal de requirements opzetten met de bedrijfsbegeleider en klant. Met de requirements kunnen de milestones gedefinieerd worden. Met de hulp van de eisen en milestones wordt het project meetbaar en weet wat de klant uiteindelijk kan verwachten. \newline
+De kwaliteit wordt bepaald door de klant en bedrijfsbegeleider. De afstudeerder is verantwoordelijk voor het product en zal de requirements \ref{tab:eisen} opzetten met de bedrijfsbegeleider en klant. Met de requirements kunnen de milestones \ref{tab:milestones} gedefinieerd worden. Met de hulp van de eisen en milestones wordt het project meetbaar en weet wat de klant uiteindelijk kan verwachten. \newline
 
 \noindent Tijdens de implementatie is gebruik gemaakt van GitHub voor versiebeheer. Sensor Maritime heeft een eigen GitHub account waar alle projecten van Sensor Maritime opstaat. Met de hulp van Github kan er makkelijk gekeken worden hoe het project verloopt en code kan beoordeeld worden door de bedrijfsbegeleider. Op Github is een uiteindelijke release gemaakt voor prototypes. Aan het einde van de stage zal een final release gemaakt worden waar alles toegevoegd wordt. Hierin komt alle documentatie en informatie te staan om het project te kunnen bouwen en uploaden naar het hardware. Bij eventuele problemen kan de afstudeerder hulp vragen van de bedrijfsbegeleider om zo de kwaliteit te waarborgen. Er zal geen hulp komen van partijen die niet in het plan van aanpak zijn genoemd.
 
 \subsection{Documentatie}
-Net zoals het product zal de afstudeerder alle verantwoordelijkheid hebben voor de documentatie dat gemaakt is door de afstudeerder. Alle documenten worden in fases opgeleverd. Het conceptdocumenten zal bekeken worden door de bedrijfsbegeleider. De bedrijfsbegeleider zal hier opmerkingen geven en de afstudeerder zal deze opmerking verwerken voordat het opgestuurd wordt naar de docentbegeleider, de docentbegeleider is het laatste persoon die het document zal bekijken, de student zal alle opmerking verwerken wat een definitief document geeft. Alle versies van het documenten zal opgeslagen worden en zal uiteindelijk op OneDrive gezet worden volgens de richtlijnen van Sensor Maritime. De bedrijfsdocumenten worden niet in fases opgeleverd, de eerste versie van het bedrijfsdocument zal altijd een conceptverslag zijn.
+Net zoals het product zal de afstudeerder alle verantwoordelijkheid hebben voor de documentatie dat gemaakt is door de afstudeerder. Het conceptdocumenten zal bekeken worden door de bedrijfsbegeleider. De bedrijfsbegeleider zal hier opmerkingen geven en de afstudeerder zal deze opmerking verwerken voordat het opgestuurd wordt naar de docentbegeleider, de docentbegeleider is het laatste persoon die het document zal bekijken, de student zal alle opmerking verwerken wat een definitief document geeft. Alle versies van het documenten zal opgeslagen worden en zal uiteindelijk op OneDrive gezet worden volgens de richtlijnen van Sensor Maritime.
