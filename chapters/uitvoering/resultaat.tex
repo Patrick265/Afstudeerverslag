@@ -16,6 +16,51 @@ Vanuit Sensor Maritime is er gevraagd om een manier te ontwikkelen om snel nieuw
 
 \noindent Met de combinatie van alle onderdelen van de hardwarevalidatie kan Sensor Maritime in minuten bekijken of de hardware problemen heeft. Het testplan is ook uitgevoerd op de huidige Satellite, die de afstudeerder heeft gebruikt. De huidige Satellite heeft het testplan succesvol afgerond. In de toekomst kan Sensor Maritime het testplan gebruiken om nieuw hardware volledig te testen. 
 
+\newpage
+\subsubsection{Uitwerking testplan}
+In tabel \ref{tab:hw_val_dip_testplan} is een uitwerking van het testplan. Alle porten zijn getest met het testplan en het resultaat is zoals verwacht.
+\begin{table}[h!]
+	\caption{Hardware validatie testplan uitwerking}
+	\begin{tabular}{llp{12.25cm}c}
+	\toprule
+	\textbf{\#}	& \textbf{Naam} & \textbf{Verwachte resultaat} & \textbf{Voltooid}\\ \toprule
+	\multicolumn{4}{l}{Dip Switch}   \\ \midrule
+	1			& PU1			& Als het aangezet wordt de range van de analoge input 1 verhoogt naar 24 volt, dit verhoogt de waarde wat de microcontroller leest, de waarde wordt getoond op een GUI.	& X \\
+	2			& PU2			& Als het aangezet wordt de range van de analoge input 2 verhoogt naar 24 volt, dit verhoogt de waarde wat de microcontroller leest, de waarde wordt getoond op een GUI.	& X \\
+	3			& PU3			& Als het aangezet wordt de range van de analoge input 3 verhoogt  naar 24 volt, dit verhoogt de waarde wat de microcontroller leest, de waarde wordt getoond op een GUI.	& X \\
+	4			& ADD0 			& Zet 3.3V op de pin van de microcontroller, als de microcontroller 3.3V detecteert wordt led 0 aangezet. & X \\
+	5			& ADD1 			& Zet 3.3V op de pin van de microcontroller, als de microcontroller 3.3V detecteert wordt led 1 aangezet. & X \\
+	6			& ADD2 			& Zet 3.3V op de pin van de microcontroller, als de microcontroller 3.3V detecteert wordt led 2 aangezet. & X \\
+	7			& ADD3 			& Zet 3.3V op de pin van de microcontroller, als de microcontroller 3.3V detecteert wordt led 3 aangezet. & X \\ \midrule
+	\multicolumn{4}{l}{Digital output signaal} \\ \midrule 
+	8			& D1			&	Als op de pin 24V staat gaat het lampje aan, en bij 0V gaat het uit. Dit gebeurt om 1 seconden. & X \\
+	9			& D2			&	Als op de pin 24V staat gaat het lampje aan, en bij 0V gaat het uit. Dit gebeurt om 1 seconden. & X \\
+	10			& D3			&	Als op de pin 24V staat gaat het lampje aan, en bij 0V gaat het uit. Dit gebeurt om 1 seconden. & X \\
+	11			& D4			&	Als op de pin 24V staat gaat het lampje aan, en bij 0V gaat het uit. Dit gebeurt om 1 seconden. & X \\ \bottomrule
+	
+	\end{tabular}
+	\label{tab:hw_val_dip_testplan}
+\end{table}
+\newpage
+\begin{table}[h!]
+	\begin{tabular}{llp{12.25cm}c}
+	\toprule
+	\textbf{\#}	& \textbf{Naam} & \textbf{Verwachte resultaat} & \textbf{Voltooid}\\ \toprule
+	\multicolumn{4}{l}{Analoge input signaal} \\ \midrule 
+	12 			& AI1			& Als de schakelaar PU1 van de schakelaar aangezet wordt dan zal het data bereik op de graphical user interface aangepast worden naar 0 tot 4096. Als de dip schakelaar uit staat dan zal het bereik maar van 0 tot 1100 gaan. & X\\
+	13 			& AI2			& Als de schakelaar PU1 van de schakelaar aangezet wordt dan zal het data bereik op de graphical user interface aangepast worden naar 0 tot 4096. Als de dip schakelaar uit staat dan zal het bereik maar van 0 tot 1100 gaan. & X\\
+	14 			& AI3			& Als de schakelaar PU1 van de schakelaar aangezet wordt dan zal het data bereik op de graphical user interface aangepast worden naar 0 tot 4096. Als de dip schakelaar uit staat dan zal het bereik maar van 0 tot 1100 gaan. & X\\ \midrule
+	\multicolumn{4}{l}{Relay} \\ \midrule
+	15 			& Relay			& De microcontroller zet de pin van de relay voor vijf seconden hoog, als dit gebeurt hoor je een klik te horen. Na vijf seconden zal deze pin weer laag gezet worden, dit moet ook gehoord kunnen worden. & X \\ \midrule
+	\multicolumn{4}{l}{Seriële communicatie} \\ \midrule
+	16 			& UART			& \multirow{4}{12.25cm}{GUI vraagt om gebruikersinput, dit wordt opgestuurd naar de Satelitte, de Satelitte behandelt de data. De Satelitte zal een bericht terugsturen met wat de Satellite heeft ontvangen.} & X \\
+	17 			& RS-232		& & X \\
+	18 			& RS-422		& & X \\
+	19 			& UART 2		& & X \\  \bottomrule
+	\end{tabular}
+\end{table}
+
+
 \subsection{Applicatie}
 De grootste doelstelling van de afstudeeropdracht is om een generieke applicatie te ontwikkelen. Hiervoor is een applicatie ontworpen en geschreven volgens de eisen die Sensor Maritime heeft opgesteld. De vraag vanuit Sensor Maritime was om een applicatie te ontwikkelen waar kapiteins plug and play sensoren in de Satellite kunnen stoppen. Hiervoor zijn verschillende doelstellingen opgesteld die als volgt gaan:
 \begin{enumerate}

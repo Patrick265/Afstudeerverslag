@@ -1,7 +1,7 @@
-Elke nieuw Satellite hardware die geleverd wordt aan Sensor Maritime moet gevalideerd worden. Er zal als eerste beschreven worden welke porten er getest worden. De volgende type porten worden besproken. Ten eerste zal er gekeken worden naar DIP schakelaars, digitale output, analoge input, relay en uiteindelijk seriële communicatie.
+Elke nieuw Satellite hardware die geleverd wordt aan Sensor Maritime moet gevalideerd worden. Er zal als eerste beschreven worden welke porten er getest worden. De volgende type porten komen voorbij: DIP schakelaars/switches, digitale output, analoge input, relay en seriële communicatie.
 
 \subsection{DIP switch}
-Een DIP switch bestaat uit een aantal schakelaars die je aan of uit kan zitten \autocite{DIP}. Op de Satellite is een DIP switch aan boord, die acht schakelaars heeft. Zeven van de acht worden op het moment gebruikt voor verschillende doeleinden. De volgende tabel \ref{tab:hw_val_dip} geeft aan wat de acties zijn als je de schakelaar aan of uit zet. De eerste drie van de schakelaars worden gebruikt als configuratie voor andere porten die worden beschreven in hoofdstuk \ref{Analog Input Signaal}. De laatste vier schakelaars zetten een specifieke pin van de microcontroller hoog of laag.
+Een DIP switch bestaat uit een aantal schakelaars die je aan of uit kan zitten \autocite{DIP}. Op de Satellite is een DIP switch aan boord, die acht schakelaars heeft. Zeven van de acht worden op het moment gebruikt voor verschillende doeleinden. Tabel \ref{tab:hw_val_dip} geeft aan wat de acties zijn als je elke schakelaar aan of uit zet. De eerste drie van de schakelaars worden gebruikt als configuratie voor andere porten die worden beschreven in hoofdstuk \ref{Analog Input Signaal}. De laatste vier schakelaars zetten een specifieke pin van de microcontroller hoog of laag.
 \begin{table}[h!]
 	\caption{DIP switch porten die gevalideerd moeten worden}
 	\begin{tabular}{lllp{12cm}}
@@ -19,23 +19,24 @@ Een DIP switch bestaat uit een aantal schakelaars die je aan of uit kan zitten \
 	\label{tab:hw_val_dip}
 \end{table}
 
-\subsection{Digital output signaal}
-Het digitale output signaal kan alleen aan- of uitgezet worden, dit betekent dat het geen input modus heeft. De Satellite heeft vier digitale output porten die op 24V of 0V gezet kunnen worden. De volgende tabel geeft een overzicht \ref{tab:hw_val_dio}.
+\subsection{Digitaal output signaal}
+Het digitale output signaal heeft geen input modus. Dat betekent dat dit signaal alleen aan- of uitgezet kan worden. De Satellite heeft vier digitale output porten die op 24V of 0V gezet kunnen worden. Tabel \ref{tab:hw_val_dio} geeft hiervan een overzicht.
 \begin{table}[h!]
-	\caption{Digital output signalen die gevalideerd moeten worden}
+	\caption{Digitale output signalen die gevalideerd moeten worden}
 	\begin{tabular}{lllp{12cm}}
 	\toprule
 	\textbf{Naam} & \textbf{Pin} & \textbf{IO} & \textbf{Beschrijving}				 	\\ \toprule
-	D1			  & 6    	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\
-	D2			  & 7    	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\
-	D3			  & 3    	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\
-	D4			  & 2   	& Output	& Digital output signaal, op deze pin komt 24V of 0V. \\ \bottomrule
+	D1			  & 6    	& Output	& Digitaal output signaal, op deze pin komt 24V of 0V. \\
+	D2			  & 7    	& Output	& Digitaal output signaal, op deze pin komt 24V of 0V. \\
+	D3			  & 3    	& Output	& Digitaal output signaal, op deze pin komt 24V of 0V. \\
+	D4			  & 2   	& Output	& Digitaal output signaal, op deze pin komt 24V of 0V. \\ \bottomrule
 	\end{tabular}
 	\label{tab:hw_val_dio}
 \end{table}
 
-\subsection{Analoog input signaal} \label{Analog Input Signaal}
-De analoge signalen kunnen alleen uitgelezen worden, dit betekent dat het alleen een input modus heeft. De Satellite heeft drie analoog input porten aan bord. In de volgende tabel wordt een overzicht gegeven \ref{tab:hw_val_ai}.
+\newpage
+\subsection{Analoge input signaal} \label{Analog Input Signaal}
+De analoge signalen kunnen alleen uitgelezen worden, dit betekent dat het enkel een input modus heeft. De Satellite heeft drie analoge input porten aan bord. In de volgende tabel wordt een overzicht gegeven \ref{tab:hw_val_ai}.
 \begin{table}[h!]
 	\caption{Analoog input signalen die gevalideerd moeten worden}
 	\begin{tabular}{lllp{12cm}}
@@ -49,7 +50,7 @@ De analoge signalen kunnen alleen uitgelezen worden, dit betekent dat het alleen
 \end{table}
 
 \subsection{Relay}
-Er is een relay standaard op de Satellite. Een relay is een mechanisch apparaat dat een elektrische connectie maakt tussen twee of meer punten op reactie van de microcontroller. Als er 3,3 volt op de relay gezet wordt zal de relay sluiten en bij 0 volt zal het weer openen. Omdat het mechanisch is moet je dit ook kunnen horen \autocite{relay}. Hieronder is een overzicht van de relay \ref{tab:hw_val_relay}.
+Er zit standaard een relay op de Satellite. Een relay is een mechanisch apparaat dat een elektrische connectie maakt tussen twee of meer punten op reactie van de microcontroller. Als er 3,3 volt op de relay gezet wordt zal de relay sluiten en bij 0 volt zal het weer openen. Omdat het mechanisch is moet je dit ook kunnen horen \autocite{relay}. Tabel \ref{tab:hw_val_relay} geeft een overzicht van de relay.
 
 \begin{table}[h!]
 	\caption{Relay signaal die gevalideerd moeten worden}
@@ -62,15 +63,15 @@ Er is een relay standaard op de Satellite. Een relay is een mechanisch apparaat 
 \end{table}
 
 \subsection{Seriële Communicatie}
-De Satellite heeft verschillende porten voor seriële communicatie aan boord. De seriële communicatiemiddelen zullen gebruikt worden voor communicatie met een hoofdsysteem of sensoren. Sommige sensoren die Sensor Maritime gebruikt sturen de gegevens via seriële communicatie over. Omdat het zoveel functionaliteiten heeft zal dit grondig getest moeten worden. Satellite heeft verschillende varianten van seriële communicatie, ten eerste zijn er twee UART-verbindingen, een RS232 verbinding, en uiteindelijk een RS422 communicatielijn. \newline
+De Satellite heeft verschillende porten voor seriële communicatie aan boord. De seriële communicatiemiddelen zullen gebruikt worden voor communicatie met een hoofdsysteem of sensoren. Sommige sensoren die Sensor Maritime gebruikt sturen de gegevens via seriële communicatie over. Omdat het zoveel functionaliteiten heeft zal dit grondig getest moeten worden. Satellite heeft verschillende varianten van seriële communicatie: ART-verbindingen, een RS232 verbinding, en een RS422 communicatielijn. \newline
 
-\noindent UART staat voor Universal asynchronous receiver-transmitter. UART stuurt asynchroon data over, dit betekent dat er geen kloksignaal is die data synchroon maakt. UART wordt universeel genoemd omdat het geconfigureerd is om verschillende seriële protocollen te ondersteunen. In plaats van een kloksignaal wordt er gebruikt gemaakt van een start bit en een stop bit. Data wordt verstuurd via UART via een door de gebruiker gespecificeerd frequentie, dit wordt ook wel baudrate genoemd, baudrate wordt gespecificeerd als in bits per seconden (bps) \autocite{UART}. \newline
+\noindent UART staat voor Universal asynchronous Receiver-Transmitter. UART stuurt asynchroon data over, dit betekent dat er geen kloksignaal is dat data synchroon maakt. UART wordt universeel genoemd omdat het geconfigureerd is om verschillende seriële protocollen te ondersteunen. In plaats van een kloksignaal wordt er gebruikt gemaakt van een start bit en een stop bit. Data wordt verstuurd via UART via een door de gebruiker gespecificeerd frequentie, dit wordt ook wel baudrate genoemd. Baudrate wordt gespecificeerd als in bits per seconden (bps) \autocite{UART}. \newline
 
-\noindent RS-232 is anders opgebouwd dan UART. RS-232 is een standaard gedefinieerd signaal tussen twee apparaten, waar de signaal naam, doel, spanningsniveau en pinnen zijn gedefinieerd. Een belangrijk verschil tussen RS-232 en UART is dat de spanningsniveau hoger en negatief kan zijn. Het voltage bereik van RS-232 gaat van -12 volt tot 12 volt \autocite{RS232}. \newline
+\noindent RS-232 is anders opgebouwd dan UART. De naam RS232 staat voor Recommended Standard 232. RS-232 is een standaard gedefinieerd signaal tussen twee apparaten, waar de signaal naam, doel, spanningsniveau en pinnen zijn gedefinieerd. Een belangrijk verschil tussen RS-232 en UART is dat het spanningsniveau hoger en negatief kan zijn. Het voltage bereik van RS-232 gaat van -12 volt tot 12 volt \autocite{RS232}. \newline
 
-\noindent RS-422 is weer een andere vorm van seriële communicatie en heeft kenmerken van RS-232. Het verschil tussen RS-232 en RS-422 is dat het voor de communicatie vier lijnen gebruikt (RX-, RX+, TX+, TX-). Met de vier communicatielijnen kan er full-duplex gecommuniceerd worden. Full-duplex communicatie betekent dat er twee of meer apparaten in beide richtingen kunnen communiceren (ontvangen en verzenden op hetzelfde moment) \autocite{FullDuplex}. RS-232 heeft half-duplex dit houdt in dat via RS-232 alleen handeling gedaan kan worden, bijvoorbeeld eerst ontvangen en dan pas verzenden. \autocite{RS422}. \newline
+\noindent RS-422 is weer een andere vorm van seriële communicatie en heeft kenmerken van RS-232. RS-422 staat voor Recommended Standard 422. Het verschil tussen RS-232 en RS-422 is dat RS-422 voor de communicatie vier lijnen gebruikt (RX-, RX+, TX+, TX-). Met de vier communicatielijnen kan er full-duplex gecommuniceerd worden. Full-duplex communicatie betekent dat er twee of meer apparaten in beide richtingen kunnen communiceren (ontvangen en verzenden op hetzelfde moment) \autocite{FullDuplex}. RS-232 is half-duplex. Dit houdt in dat via RS-232 alleen handeling gedaan kan worden, bijvoorbeeld eerst ontvangen en dan pas verzenden. \autocite{RS422}. \newline
 
-\noindent In de volgende tabel \ref{tab:hw_val_serieel} wordt een overzicht gegeven van de seriële communicatie die verbonden is op de microcontroller. Voor de RS-422 communicatie zijn alleen twee communicatielijnen aangegeven, omdat dit zo verbonden is op de microcontroller. De Rx+, RX- en TX+, TX- lijnen worden samengevoegd door een chip en dan verbonden naar de microcontroller.
+\noindent In tabel \ref{tab:hw_val_serieel} staat een overzicht van de seriële communicatie poorten die verbonden is op de microcontroller. Voor de RS-422 communicatie zijn alleen twee communicatielijnen aangegeven, omdat dit zo verbonden is op de microcontroller. De RX+, RX- en TX+, TX- lijnen worden samengevoegd door een chip en dan verbonden naar de microcontroller.
 \begin{table}[h!]
 	\caption{Seriële communicatie porten die gevalideerd moeten worden}
 	\begin{tabular}{lllp{9cm}}
